@@ -1,0 +1,14 @@
+.layout {
+  min-height: 100vh;
+  height: 100%;
+}
+.container {
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+a, button, h1, h2, h3, h4, h4, h6, p, ul, li, svg {
+  @apply text-blue-custom-400;
+}
