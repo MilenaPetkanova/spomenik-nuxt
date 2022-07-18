@@ -31,34 +31,36 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  data() {
-    return {
-			index: null,
-			isLoaded: false,
-    }
-  },
-	computed:{
-    ...mapGetters('gallery', ['gallery']),
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
-	},
-	async mounted() {
-    await this.fetchGallery();
-  },
-	methods: {
-		...mapActions('gallery', ['initGallery']),
-		async fetchGallery() {
-      try {
-        const gallery = await this.$galleryService.getAll();
-        this.initGallery(gallery)
-				this.isLoaded = true
-      } catch (error) {
-        console.error(error)
-      }
+    data() {
+        return {
+            index: null,
+            isLoaded: false,
+        };
     },
-		openGallery(index) {
-      this.$refs.lightbox.showImage(index)
+    computed: {
+        ...mapGetters("gallery", ["gallery"]),
+        ...mapGetters("modals", ["shownModal", "modalsEnum"]),
+        ...mapGetters("constants", ["typographyConst"]),
     },
-	}
+    async mounted() {
+        await this.fetchGallery();
+    },
+    methods: {
+        ...mapActions("gallery", ["initGallery"]),
+        async fetchGallery() {
+            try {
+                const gallery = await this.$galleryService.getAll();
+                this.initGallery(gallery);
+                this.isLoaded = true;
+            }
+            catch (error) {
+                console.error(error);
+            }
+        },
+        openGallery(index) {
+            this.$refs.lightbox.showImage(index);
+        },
+    },
 }
 </script>
 

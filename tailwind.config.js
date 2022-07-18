@@ -4,11 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'purple-custom-600': '#6D22BD',
-        'purple-custom-400': '#A353CE',
-        'blue-custom-600': '#40B0D5',
-        'blue-custom-400': '#5DFFE8',
-        'black-custom-600': '#1b1c1e',
+        'lavender-indigo': '#A368FF',
+        'heliotrope': '#CB68FF',
+        'blue': '#40B0D5',
+        'eerie-black': '#0E0E2C',
+        'grey': '#8C8CA1',
+        'ghost-white': '#FAFCFE',
+        'aquamarine': '#68FFC2',
+        'pastel-red': '#FF6868',
       },
       fontFamily: {
         'montserrat': ['montserrat', 'sans-serif'],
@@ -16,7 +19,8 @@ module.exports = {
       },
       borderRadius: {
         '4xl': '60px',
-      }
+      },
+
     },
   },
   variants: {

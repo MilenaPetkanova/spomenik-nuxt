@@ -11,7 +11,7 @@
 				>
 					<template v-slot:list>
 						<ul class="dropdown__elements flex flex-col">
-							<li class="dropdown__element border-b-2 border-blue-custom-400">
+							<li class="dropdown__element border-b-2 border-blue">
 								<Button 
 									class="dropdown__btn-create"
 									classes="is-tertiary"

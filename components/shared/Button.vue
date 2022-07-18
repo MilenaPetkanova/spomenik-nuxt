@@ -47,20 +47,20 @@ export default {
   }
 
   &.is-primary {
-    @apply bg-blue-custom-400 text-black;
+    @apply bg-blue text-black;
   }
 
   &.is-secondary {
-    @apply bg-black-custom-600 text-blue-custom-400 border-2 border-blue-custom-400;
+    @apply bg-eerie-black text-blue border-2 border-blue;
     .svg-inline--fa {
-      @apply text-blue-custom-400;
+      @apply text-blue;
     }
   }
 
   &.is-tertiary {
-    @apply bg-black-custom-600 text-blue-custom-400;
+    @apply bg-eerie-black text-blue;
     .svg-inline--fa {
-      @apply text-blue-custom-400;
+      @apply text-blue;
     }
   }
 
