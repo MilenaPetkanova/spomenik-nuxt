@@ -42,6 +42,7 @@ export default {
       '~/components/auth',
       '~/components/letters',
       '~/components/gallery',
+      '~/components/design-system',
     ]
   },
 
