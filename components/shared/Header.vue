@@ -1,7 +1,7 @@
 <template>
 	<header class="header">
 		<div class="header__container container flex justify-between items-center py-4">
-			<Logo />
+			<Logo :fromName="namesStatic.from" :toName="namesStatic.to" />
 			<div class="header__actions flex">
 				<ButtonDropdown 
 					icon="plus"
@@ -61,11 +61,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex"
+import { NamesStatic } from '~/constants/static'
 export default {
   data() {
     return {
-			isMainMenuOpen: false,
-			isCreateMenuOpen: false,
+		namesStatic: NamesStatic,
+		isMainMenuOpen: false,
+		isCreateMenuOpen: false,
     }
   },
 	computed:{
