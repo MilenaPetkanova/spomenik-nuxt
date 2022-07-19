@@ -1,10 +1,10 @@
 <template>
   <button class="btn" :class="classes">
-    <font-awesome-icon
-      class="btn__icon mr-2" 
+    <Icon 
       v-if="icon"
-      :icon="icon" 
-    />
+      :name="icon"
+      class="btn__icon mr-2" 
+    ></Icon>
     <span
       class="btn__label"
       v-if="!isIconType">

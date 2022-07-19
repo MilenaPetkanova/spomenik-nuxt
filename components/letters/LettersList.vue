@@ -16,10 +16,10 @@
           v-show="hoveredId === letter.id"
         >
           <button class="mr-4" @click="startUpdating(letter.id)">
-            <font-awesome-icon icon="pen" />
+            <Icon name="pen"></Icon>
           </button>
           <button @click="deleteLetter(letter.id)">
-            <font-awesome-icon icon="trash-can" />
+            <Icon name="trash-can"></Icon>
           </button>
         </div>
         <div class="letters-list__content">

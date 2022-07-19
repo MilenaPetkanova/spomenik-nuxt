@@ -101,8 +101,5 @@ export default {
             }
         },
     },
-    mounted() {
-        console.log('this.typographyConst.Header3 :>> ', typeof(this.typographyConst.Header3))
-    }
 }
 </script>

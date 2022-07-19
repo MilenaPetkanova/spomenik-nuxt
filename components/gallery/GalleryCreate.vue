@@ -4,7 +4,7 @@
 			classes="is-secondary w-full h-full"
 			@click.native="showModal(modalsEnum.GalleryCreateStep1)">
 			<template v-slot:content>
-				<font-awesome-icon icon="circle-plus" />
+				<Icon name="circle-plus"></Icon>
 				<p class="btn--full__text text-xs">Добавете</p> 
 			</template>
 		</Button>

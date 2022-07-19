@@ -4,7 +4,7 @@
 			classes="letter-create__btn is-secondary w-full h-full h-32 mb-12"
 			@click.native="showModal(modalsEnum.LetterCreateStep1)">
 			<template v-slot:content>
-				<font-awesome-icon icon="circle-plus" />
+				<Icon name="circle-plus"></Icon>
 				<p class="btn--full__text text-xs">Добавете</p> 
 			</template>
 		</Button>

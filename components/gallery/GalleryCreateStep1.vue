@@ -24,10 +24,7 @@
 		<template v-slot:body>
 			<div class="h-full flex flex-col items-center">
 				<template v-if="!newRecordSrc">
-					<font-awesome-icon
-						class="mt-12 mb-8" 
-						icon="photo-film" 
-						size="4x" />
+					<Icon name="photo-film" size="4x" class="mt-12 mb-8"></Icon>
 					<label class="btn is-primary text-base">
 						<input
 							class="hidden"
