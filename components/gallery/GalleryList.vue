@@ -1,9 +1,6 @@
 <template>
 	<section class="gallery-list py-2">
 		<ul class="gallery-list__elements">
-			<li class="gallery-list__element px-1 mb-2">
-				<GalleryCreate />
-			</li>
 			<li 
 			  class="gallery-list__element px-1 mb-2"
 				v-for="(element, index) in gallery" :key="index"

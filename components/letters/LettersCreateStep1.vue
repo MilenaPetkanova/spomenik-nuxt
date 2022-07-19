@@ -7,14 +7,14 @@
 			<div class="flex items-center justify-between px-1">
 				<span class="flex items-center">
 					<Button
-						class="is-tertiary is-icon"
+						class="is-borderless is-icon"
 						icon="xmark"
 						@click.native="showModal(null)">
 					</Button>
-					<h1>Добавяне на писмо</h1>
+					<Typography :name="typographyEnum.Bold" text="Ново писмо"></Typography>
 				</span>
 				<Button
-					class="is-tertiary is-icon"
+					class="is-borderless is-icon"
 					icon="arrow-right-long"
 					@click.native="createLetter">
 				</Button>
@@ -30,15 +30,17 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { TypographyEnum } from '~/constants/enums'
 export default {
   data() {
     return {
-      content: '',
-      editorToolbar: [
-        ["bold", "italic", "underline"],
-        [{ list: "ordered" }, { list: "bullet" }],
-        ["image", "code-block"]
-      ],
+    	typographyEnum: TypographyEnum,
+		content: '',
+		editorToolbar: [
+			["bold", "italic", "underline"],
+			[{ list: "ordered" }, { list: "bullet" }],
+			["image", "code-block"]
+		],
     }
   },
   computed:{

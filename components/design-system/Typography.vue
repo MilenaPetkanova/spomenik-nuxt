@@ -8,22 +8,10 @@
 import { TypographyEnum } from '~/constants/enums'
 export default {
     props: {
-        name: {
-            default: null,
-            type: Number,
-        },
-        text: {
-          default: null,
-          type: String, 
-        },
-        tag: {
-            default: null,
-            type: String,
-        },
-        classes: {
-            default: null,
-            type: String,
-        },
+        name: Number,
+        text: String,
+        tag: String,
+        classes: String,
     },
     computed: {
         tagComputed() {
@@ -51,7 +39,7 @@ export default {
                     return 'h5'
                 case TypographyEnum.ButtonText:
                     return 'span'
-                case TypographyEnum.BoldLink:
+                case TypographyEnum.Link:
                     return 'span'
                 default:
                     return 'p'
@@ -81,9 +69,9 @@ export default {
                 case TypographyEnum.Overline:
                     return 'font-montserrat text-xs uppercase font-bold tracking-widest'
                 case TypographyEnum.ButtonText:
-                    return 'font-montserrat text-sm uppercase font-bold'
-                case TypographyEnum.BoldLink:
-                    return 'font-montserrat text-base underline font-bold'
+                    return 'font-montserrat text-sm uppercase font-bold tracking-wider'
+                case TypographyEnum.Link:
+                    return 'font-montserrat text-base underline font-bold tracking-wider'
                 default:
                     return 'font-montserrat text-base'
             }

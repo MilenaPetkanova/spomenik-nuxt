@@ -41,7 +41,7 @@ export default {
 .gallery-post {
 	&__media {
 		width: 100vw;
-		max-height: 100vw;
+		max-height: 100vh;
 	}
 }
 </style>

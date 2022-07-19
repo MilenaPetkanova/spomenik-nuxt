@@ -2,14 +2,14 @@
   <div class="dropdown relative">
     <Button
       class="dropdown__btn-open "
-      :classes="`is-primary is-icon ${classes}`"
+      :classes="`is-icon ${classes}`"
       :icon="icon"
       v-if="!isOpen"
       @click.native="toggleIsOpen(true)">
     </Button>
     <Button
       class="dropdown__btn-close"
-      :classes="`is-primary is-icon ${classes}`"
+      :classes="`is-icon ${classes}`"
       icon="xmark"
       v-if="isOpen"
       @click.native="toggleIsOpen(false)">
@@ -17,7 +17,7 @@
     <transition name="slide-down">
       <menu
         class="dropdown__menu absolute right-0 top-full min-w-max z-50 
-        bg-eerie-black border-b-2 border-r-2 border-blue pt-4"
+        bg-eerie-black border-2 border-lavender-indigo -mt-0.5"
         v-if="isOpen">
         <slot name="list"></slot>
       </menu>

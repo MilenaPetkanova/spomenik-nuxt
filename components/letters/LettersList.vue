@@ -21,6 +21,17 @@
           <button @click="deleteLetter(letter.id)">
             <Icon name="trash-can"></Icon>
           </button>
+          <!-- TODO: Use Button components -->
+          <!-- <Button
+						class="is-borderless is-icon"
+						icon="pen"
+            @click="startUpdating(letter.id)"
+					></Button>
+          <Button
+						class="is-borderless is-icon"
+						icon="trash-can"
+            @click="deleteLetter(letter.id)"
+					></Button> -->
         </div>
         <div class="letters-list__content">
           <div v-if="editedId !== letter.id" v-html="letter.content"></div>

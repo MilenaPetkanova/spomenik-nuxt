@@ -5,7 +5,7 @@
     <div 
 			class="modal__window w-full h-full bg-eerie-black text-center" 
 			@click.stop>
-			<header class="modal__header border-b border-blue py-4">
+			<header class="modal__header py-4">
 				<slot name="header"></slot>
 			</header>
 			<section class="modal__body">

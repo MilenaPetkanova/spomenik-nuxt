@@ -12,7 +12,7 @@
 		</div>
 		<div class="letter-post__body">
 			<div class="container py-2">
-				<div class="letter-post__content text-left" v-html="shownLetter.content"></div>
+				<div class="letter-post__content text-left text-ghost-white" v-html="shownLetter.content"></div>
 			</div>
 		</div>
 	</div>

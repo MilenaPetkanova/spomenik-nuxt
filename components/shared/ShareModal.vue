@@ -6,7 +6,7 @@
 		<template v-slot:header>
 			<div class="flex items-center px-1">
 				<Button
-					class="is-tertiary is-icon"
+					class="is-borderless is-icon"
 					icon="arrow-left-long"
 					@click.native="showModal(null)">
 				</Button>
