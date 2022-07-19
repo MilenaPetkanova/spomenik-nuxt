@@ -1,14 +1,14 @@
 <template>
-    <component :is="tag" :class="classes">
-        {{nameProp}}
+    <component :is="tagComputed" :class="classesComputed">
+       {{ text }}
     </component>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { TypographyConst } from '~/constants/design-system-constants'
 export default {
     props: {
-        nameProp: {
+        name: {
             default: null,
             type: String,
             validator(value) {
@@ -27,75 +27,78 @@ export default {
                 ].includes(value)
             }
         },
-        tagProp: {
+        text: {
+          default: null,
+          type: String, 
+        },
+        tag: {
             default: null,
             type: String,
         },
-        classesProp: {
+        classes: {
             default: null,
             type: String,
         },
     },
     computed: {
-        ...mapGetters("constants", ["typographyConst"]),
-        tag() {
-            if(this.tagProp) {
-                return this.tagProp
+        tagComputed() {
+            if(this.tag) {
+                return this.tag
             }
-            switch(this.nameProp) {
-                case this.typographyConst.Header1:
+            switch(this.name) {
+                case TypographyConst.Header1:
                     return 'h1'
-                case this.typographyConst.Header2:
+                case TypographyConst.Header2:
                     return 'h2'
-                case this.typographyConst.Header3:
+                case TypographyConst.Header3:
                     return 'h3'
-                case this.typographyConst.Subtitle:
+                case TypographyConst.Subtitle:
                     return 'h4'
-                case this.typographyConst.Body:
+                case TypographyConst.Body:
                     return 'p'
-                case this.typographyConst.Emphasis:
+                case TypographyConst.Emphasis:
                     return 'em'
-                case this.typographyConst.Bold:
+                case TypographyConst.Bold:
                     return 'b'
-                case this.typographyConst.Small:
+                case TypographyConst.Small:
                     return 'small'
-                case this.typographyConst.PreTitle:
+                case TypographyConst.Overline:
                     return 'h5'
-                case this.typographyConst.ButtonText:
+                case TypographyConst.ButtonText:
                     return 'span'
-                case this.typographyConst.BoldLink:
+                case TypographyConst.BoldLink:
                     return 'span'
                 default:
                     return 'p'
             }
         },
-        classes() {
-            if(this.classesProp) {
-                return this.classesProp
+        classesComputed() {
+            if(this.classes) {
+                return this.classes
             }
-            switch(this.nameProp) {
-                case this.typographyConst.Header1:
-                    return 'font-montserrat text-5xl'
-                case this.typographyConst.Header2:
-                    return 'font-montserrat text-4xl'
-                case this.typographyConst.Header3:
-                    return 'font-montserrat text-3xl'
-                case this.typographyConst.Subtitle:
-                    return 'font-montserrat text-2xl'
-                case this.typographyConst.Body:
+            switch(this.name) {
+                case TypographyConst.Header1:
+                    return 'font-montserrat text-5xl font-bold'
+                case TypographyConst.Header2:
+                    return 'font-montserrat text-4xl font-bold'
+                case TypographyConst.Header3:
+                    return 'font-montserrat text-3xl font-bold'
+                case TypographyConst.Subtitle:
+                    return 'font-montserrat text-2xl font-medium'
+                case TypographyConst.Body:
                     return 'font-montserrat text-base'
-                case this.typographyConst.Emphasis:
+                case TypographyConst.Emphasis:
                     return 'font-montserrat text-base italic'
-                case this.typographyConst.Bold:
+                case TypographyConst.Bold:
                     return 'font-montserrat text-base font-bold'
-                case this.typographyConst.Small:
+                case TypographyConst.Small:
                     return 'font-montserrat text-xs'
-                case this.typographyConst.PreTitle:
-                    return 'font-montserrat text-xs uppercase'
-                case this.typographyConst.ButtonText:
-                    return 'font-montserrat text-sm uppercase'
-                case this.typographyConst.BoldLink:
-                    return 'font-montserrat text-base underline'
+                case TypographyConst.Overline:
+                    return 'font-montserrat text-xs uppercase font-bold tracking-widest'
+                case TypographyConst.ButtonText:
+                    return 'font-montserrat text-sm uppercase font-bold'
+                case TypographyConst.BoldLink:
+                    return 'font-montserrat text-base underline font-bold'
                 default:
                     return 'font-montserrat text-base'
             }

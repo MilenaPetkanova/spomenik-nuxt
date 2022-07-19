@@ -7,7 +7,7 @@ export const TypographyConst = {
     Emphasis: 'emphasis',
     Bold: 'bold',
     Small: 'small',
-    PreTitle: 'pre-title',
+    Overline: 'overline',
     ButtonText: 'button-text',
     Link: 'link',
 }

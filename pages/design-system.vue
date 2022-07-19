@@ -1,23 +1,23 @@
 <template>
   <div class="page is-design-system">
     <div class="page__conatiner container py-8">
-        <Typography :nameProp="typographyConst.Header1"></Typography>
-		<Typography :nameProp="typographyConst.Header2"></Typography>
-		<Typography :nameProp="typographyConst.Header3"></Typography>
-		<Typography :nameProp="typographyConst.Subtitle"></Typography>
-		<Typography :nameProp="typographyConst.Body"></Typography>
-		<Typography :nameProp="typographyConst.Emphasis"></Typography>
-		<Typography :nameProp="typographyConst.Bold"></Typography>
-		<Typography :nameProp="typographyConst.Small"></Typography>
-		<Typography :nameProp="typographyConst.PreTitle"></Typography>
-		<Typography :nameProp="typographyConst.ButtonText"></Typography>
-		<Typography :nameProp="typographyConst.Link"></Typography>
+      <Typography :name="typographyConst.Header1" :text="typographyConst.Header1"></Typography>
+      <Typography :name="typographyConst.Header2" :text="typographyConst.Header2"></Typography>
+      <Typography :name="typographyConst.Header3" :text="typographyConst.Header3"></Typography>
+      <Typography :name="typographyConst.Subtitle" :text="typographyConst.Subtitle"></Typography>
+      <Typography :name="typographyConst.Body" :text="typographyConst.Body"></Typography>
+      <Typography :name="typographyConst.Emphasis" :text="typographyConst.Emphasis"></Typography>
+      <Typography :name="typographyConst.Bold" :text="typographyConst.Bold"></Typography>
+      <Typography :name="typographyConst.Small" :text="typographyConst.Small"></Typography>
+      <Typography :name="typographyConst.Overline" :text="typographyConst.Overline"></Typography>
+      <Typography :name="typographyConst.ButtonText" :text="typographyConst.ButtonText"></Typography>
+      <Typography :name="typographyConst.Link" :text="typographyConst.Link"></Typography>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { TypographyConst } from '~/constants/design-system-constants'
 export default{
   name: 'DesignSystem',
   transition: 'page-transition',
@@ -26,8 +26,10 @@ export default{
       title: 'Design System',
     };
   },
-  computed: {
-    ...mapGetters("constants", ["typographyConst"]),
+  data() {
+    return {
+      typographyConst: TypographyConst,
+    }
   }
 }
 </script>

@@ -1,4 +1,4 @@
-import Modals from '../constants/enums';
+import { Modals } from '../constants/enums';
 
 export const state = () => ({
   shownModal: null,

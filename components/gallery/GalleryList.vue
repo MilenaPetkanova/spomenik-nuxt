@@ -40,7 +40,6 @@ export default {
     computed: {
         ...mapGetters("gallery", ["gallery"]),
         ...mapGetters("modals", ["shownModal", "modalsEnum"]),
-        ...mapGetters("constants", ["typographyConst"]),
     },
     async mounted() {
         await this.fetchGallery();
