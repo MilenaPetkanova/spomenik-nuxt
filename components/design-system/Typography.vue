@@ -5,27 +5,12 @@
 </template>
 
 <script>
-import { TypographyConst } from '~/constants/design-system-constants'
+import { TypographyEnum } from '~/constants/enums'
 export default {
     props: {
         name: {
             default: null,
-            type: String,
-            validator(value) {
-                return [
-                    'header-1', 
-                    'header-2', 
-                    'header-3', 
-                    'subtitle', 
-                    'body', 
-                    'emphasis', 
-                    'bold', 
-                    'small', 
-                    'pre-title', 
-                    'button-text', 
-                    'link', 
-                ].includes(value)
-            }
+            type: Number,
         },
         text: {
           default: null,
@@ -46,27 +31,27 @@ export default {
                 return this.tag
             }
             switch(this.name) {
-                case TypographyConst.Header1:
+                case TypographyEnum.Header1:
                     return 'h1'
-                case TypographyConst.Header2:
+                case TypographyEnum.Header2:
                     return 'h2'
-                case TypographyConst.Header3:
+                case TypographyEnum.Header3:
                     return 'h3'
-                case TypographyConst.Subtitle:
+                case TypographyEnum.Subtitle:
                     return 'h4'
-                case TypographyConst.Body:
+                case TypographyEnum.Body:
                     return 'p'
-                case TypographyConst.Emphasis:
+                case TypographyEnum.Emphasis:
                     return 'em'
-                case TypographyConst.Bold:
+                case TypographyEnum.Bold:
                     return 'b'
-                case TypographyConst.Small:
+                case TypographyEnum.Small:
                     return 'small'
-                case TypographyConst.Overline:
+                case TypographyEnum.Overline:
                     return 'h5'
-                case TypographyConst.ButtonText:
+                case TypographyEnum.ButtonText:
                     return 'span'
-                case TypographyConst.BoldLink:
+                case TypographyEnum.BoldLink:
                     return 'span'
                 default:
                     return 'p'
@@ -77,27 +62,27 @@ export default {
                 return this.classes
             }
             switch(this.name) {
-                case TypographyConst.Header1:
+                case TypographyEnum.Header1:
                     return 'font-montserrat text-5xl font-bold'
-                case TypographyConst.Header2:
+                case TypographyEnum.Header2:
                     return 'font-montserrat text-4xl font-bold'
-                case TypographyConst.Header3:
+                case TypographyEnum.Header3:
                     return 'font-montserrat text-3xl font-bold'
-                case TypographyConst.Subtitle:
+                case TypographyEnum.Subtitle:
                     return 'font-montserrat text-2xl font-medium'
-                case TypographyConst.Body:
+                case TypographyEnum.Body:
                     return 'font-montserrat text-base'
-                case TypographyConst.Emphasis:
+                case TypographyEnum.Emphasis:
                     return 'font-montserrat text-base italic'
-                case TypographyConst.Bold:
+                case TypographyEnum.Bold:
                     return 'font-montserrat text-base font-bold'
-                case TypographyConst.Small:
+                case TypographyEnum.Small:
                     return 'font-montserrat text-xs'
-                case TypographyConst.Overline:
+                case TypographyEnum.Overline:
                     return 'font-montserrat text-xs uppercase font-bold tracking-widest'
-                case TypographyConst.ButtonText:
+                case TypographyEnum.ButtonText:
                     return 'font-montserrat text-sm uppercase font-bold'
-                case TypographyConst.BoldLink:
+                case TypographyEnum.BoldLink:
                     return 'font-montserrat text-base underline font-bold'
                 default:
                     return 'font-montserrat text-base'

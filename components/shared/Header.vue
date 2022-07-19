@@ -61,7 +61,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex"
-import { NamesStatic } from '~/constants/static'
+import { NamesStatic } from '~/constants/statics'
 export default {
   data() {
     return {

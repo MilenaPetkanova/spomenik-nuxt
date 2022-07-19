@@ -1,23 +1,23 @@
 <template>
   <div class="page is-design-system">
     <div class="page__conatiner container py-8">
-      <Typography :name="typographyConst.Header1" :text="typographyConst.Header1"></Typography>
-      <Typography :name="typographyConst.Header2" :text="typographyConst.Header2"></Typography>
-      <Typography :name="typographyConst.Header3" :text="typographyConst.Header3"></Typography>
-      <Typography :name="typographyConst.Subtitle" :text="typographyConst.Subtitle"></Typography>
-      <Typography :name="typographyConst.Body" :text="typographyConst.Body"></Typography>
-      <Typography :name="typographyConst.Emphasis" :text="typographyConst.Emphasis"></Typography>
-      <Typography :name="typographyConst.Bold" :text="typographyConst.Bold"></Typography>
-      <Typography :name="typographyConst.Small" :text="typographyConst.Small"></Typography>
-      <Typography :name="typographyConst.Overline" :text="typographyConst.Overline"></Typography>
-      <Typography :name="typographyConst.ButtonText" :text="typographyConst.ButtonText"></Typography>
-      <Typography :name="typographyConst.Link" :text="typographyConst.Link"></Typography>
+      <Typography :name="typographyEnum.Header1" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Header2" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Header3" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Subtitle" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Body" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Emphasis" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Bold" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Small" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Overline" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.ButtonText" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
+      <Typography :name="typographyEnum.Link" text="Lorem Ipsum" class="text-blue block mb-3"></Typography>
     </div>
   </div>
 </template>
 
 <script>
-import { TypographyConst } from '~/constants/design-system-constants'
+import { TypographyEnum } from '~/constants/enums'
 export default{
   name: 'DesignSystem',
   transition: 'page-transition',
@@ -28,7 +28,7 @@ export default{
   },
   data() {
     return {
-      typographyConst: TypographyConst,
+      typographyEnum: TypographyEnum,
     }
   }
 }
