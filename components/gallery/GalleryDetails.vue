@@ -8,11 +8,11 @@
 			<div class="container flex justify-between py-2 pr-1">
 				<span class="flex">
 					<div v-if="post.year" class="flex items-center mr-6">
-						<font-awesome-icon icon="calendar" size="xs" />
+						<Icon name="calendar" size="xs"></Icon>
 						<p class="text-sm ml-2">{{post.year}}</p>
 					</div>
 					<div v-if="post.location" class="flex items-center mr-6">
-						<font-awesome-icon icon="location-dot" size="xs" />
+						<Icon name="location-dot" size="xs"></Icon>
 						<p class="text-sm ml-2">{{post.location}}</p>
 					</div>
 				</span>
@@ -41,7 +41,7 @@ export default {
 .gallery-post {
 	&__media {
 		width: 100vw;
-		max-height: 100vw;
+		max-height: 100vh;
 	}
 }
 </style>

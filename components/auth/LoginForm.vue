@@ -26,10 +26,6 @@
         v-if="validation.hasError('password')"
         v-html="validation.firstError('password')">
       </p>
-      <Button
-        class="is-link text-sm mr-0 ml-auto"
-        label="Забравена парола?">
-      </Button>
     </div>
     <Button
       class="login-form__btn"
@@ -42,11 +38,15 @@
       v-if="error">
       <p class="text-sm text-red-400" v-html="error"></p>
     </div>
-    <div class="regoster-form__more-actions flex justify-end py-12">
+    <div class="regoster-form__more-actions flex flex-col justify-end items-end py-16">
       <Button
-        class="is-link text-sm"
+        classes="is-link mb-4"
         label="Регистрация"
         @click.native="$router.push('/auth/register')">
+      </Button>
+      <Button
+        classes="is-link"
+        label="Забравена парола">
       </Button>
     </div>
   </form>

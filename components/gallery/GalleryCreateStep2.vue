@@ -7,14 +7,14 @@
 			<div class="flex items-center justify-between px-1">
 				<span class="flex items-center">
 					<Button
-						class="is-tertiary is-icon"
+						class="is-borderless is-icon"
 						icon="xmark"
 						@click.native="showModal(null)">
 					</Button>
 					<h1>Добавяне на снимка / видео</h1>
 				</span>
 				<Button
-					class="is-tertiary is-icon"
+					class="is-borderless is-icon"
 					icon="check"
 					@click.native="createGalleryRecord(3)">
 				</Button>

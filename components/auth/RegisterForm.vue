@@ -51,9 +51,9 @@
       v-if="error">
       <p class="text-sm text-red-400" v-html="error"></p>
     </div>
-    <div class="regoster-form__more-actions flex justify-end py-12">
+    <div class="regoster-form__more-actions flex justify-end py-16">
       <Button
-        class="is-link"
+        classes="is-link"
         label="Вход"
         @click.native="navigateTo('/auth/login')">
       </Button>

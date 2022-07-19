@@ -7,15 +7,15 @@
 			<div class="flex items-center justify-between px-1">
 				<span class="flex items-center">
 					<Button
-						class="is-tertiary is-icon"
+						class="is-borderless is-icon"
 						icon="xmark"
-						@click.native="showModal(null)">
+						@click.native="showModal(null); startNewRecord(null)">
 					</Button>
-					<h1>Добавяне на снимка / видео</h1>
+					<Typography :name="typographyEnum.Bold" text="Нова снимка"></Typography>
 				</span>
 				<Button
 					v-if="newRecordSrc"
-					class="is-tertiary is-icon"
+					class="is-borderless is-icon"
 					icon="arrow-right-long"
 					@click.native="showModal(modalsEnum.GalleryCreateStep2)">
 				</Button>
@@ -24,20 +24,19 @@
 		<template v-slot:body>
 			<div class="h-full flex flex-col items-center">
 				<template v-if="!newRecordSrc">
-					<font-awesome-icon
-						class="mt-12 mb-8" 
-						icon="photo-film" 
-						size="4x" />
-					<label class="btn is-primary text-base">
-						<input
-							class="hidden"
-							type="file"
-							accept=".jpeg,.jpg,.png,image/jpeg,image/png"
-							aria-label="upload image button"
-							@change="selectFile"
-						/>
-						Изберете от устройството си
-					</label>
+					<div class="px-4">
+						<Icon name="file-image" size="4x" class="mt-12 mb-8"></Icon>
+						<label class="btn is-primary">
+							<input
+								class="hidden"
+								type="file"
+								accept=".jpeg,.jpg,.png,image/jpeg,image/png"
+								aria-label="upload image button"
+								@change="selectFile"
+							/>
+							<Typography :name="typographyEnum.ButtonText" text="Изберете от устройството си"></Typography>
+						</label>
+					</div>
 				</template>
 				<!-- TODO: Add loader -->
 				<template v-else>
@@ -50,7 +49,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { TypographyEnum } from '~/constants/enums'
 export default {
+	data() {
+		return {
+			typographyEnum: TypographyEnum,
+		}
+	},
 	computed:{
     ...mapGetters('gallery', ['newRecordSrc']),
 		...mapGetters('modals', ['shownModal', 'modalsEnum']),
@@ -83,6 +88,9 @@ export default {
 <style scoped>
 img {
 	width: 100vw;
-	max-height: 100vw;
+	max-height: 100vh;
+}
+.btn.is-primary {
+	@apply px-4;
 }
 </style>

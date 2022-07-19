@@ -1,9 +1,6 @@
 <template>
 	<section class="gallery-list py-2">
 		<ul class="gallery-list__elements">
-			<li class="gallery-list__element px-1 mb-2">
-				<GalleryCreate />
-			</li>
 			<li 
 			  class="gallery-list__element px-1 mb-2"
 				v-for="(element, index) in gallery" :key="index"
@@ -31,34 +28,35 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  data() {
-    return {
-			index: null,
-			isLoaded: false,
-    }
-  },
-	computed:{
-    ...mapGetters('gallery', ['gallery']),
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
-	},
-	async mounted() {
-    await this.fetchGallery();
-  },
-	methods: {
-		...mapActions('gallery', ['initGallery']),
-		async fetchGallery() {
-      try {
-        const gallery = await this.$galleryService.getAll();
-        this.initGallery(gallery)
-				this.isLoaded = true
-      } catch (error) {
-        console.error(error)
-      }
+    data() {
+        return {
+            index: null,
+            isLoaded: false,
+        };
     },
-		openGallery(index) {
-      this.$refs.lightbox.showImage(index)
+    computed: {
+        ...mapGetters("gallery", ["gallery"]),
+        ...mapGetters("modals", ["shownModal", "modalsEnum"]),
     },
-	}
+    async mounted() {
+        await this.fetchGallery();
+    },
+    methods: {
+        ...mapActions("gallery", ["initGallery"]),
+        async fetchGallery() {
+            try {
+                const gallery = await this.$galleryService.getAll();
+                this.initGallery(gallery);
+                this.isLoaded = true;
+            }
+            catch (error) {
+                console.error(error);
+            }
+        },
+        openGallery(index) {
+            this.$refs.lightbox.showImage(index);
+        },
+    },
 }
 </script>
 
