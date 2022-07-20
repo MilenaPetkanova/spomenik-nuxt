@@ -21,33 +21,39 @@
 			</div>
 		</template>
 		<template v-slot:body>
-			<div class="row flex px-4 py-8">
-				<img class="w-32 h-32 object-cover" :src="newRecordSrc" alt="image-preview" /> 
+			<div class="row flex p-4">
+        <!-- TODO: Maybe add styles for modal header and body? -->
+        <!-- TODO: Rename colors -->
+				<img class="object-cover" :src="newRecordSrc" alt="image-preview" /> 
 				<div class="flex flex-col pl-4">
-					<label for="year">Година</label>
-					<input 
-						class="w-full py-1 mb-4"
-						type="text" 
-						name="year"
-						v-model="year"
-					/>
-					<label for="location">Локация</label>
-					<input 
-						class="w-full py-1"
-						type="text" 
-						name="location"
-						v-model="location"
-					/>
+          <!-- TODO: Use dropdown for the year -->
+          <Field
+            class="w-full mb-4"
+            id="year"
+            type="text"
+            label="Година"
+            placeholder="2022"
+            v-model.trim="year"
+          />
+          <Field
+            class="w-full mb-4"
+            id="location"
+            type="text"
+            label="Локация"
+            placeholder="Локация"
+            v-model.trim="location"
+          />
 				</div>
 			</div>
 			<div class="row px-4">
-				<label for="caption">Описание</label>
-				<textarea 
-					class="w-full"
-					type="text" 
-					name="caption"
-					v-model="caption"
-				/>
+        <Field
+          class="w-full mb-4"
+          id="caption"
+          type="textarea"
+          label="Описание"
+          placeholder="Описание"
+          v-model.trim="caption"
+        />
 			</div>
 		</template>
 	</Modal>
@@ -89,3 +95,10 @@ export default {
 	}
 } 
 </script>
+
+<style scoped>
+img {
+  height: 168px;
+  width: auto;
+}
+</style>

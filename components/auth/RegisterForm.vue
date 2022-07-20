@@ -1,55 +1,44 @@
 <template>
-  <form class="register-form" @submit.prevent="">
-    <div class="register-form__group w-full mb-4">
-      <input 
-        class="register-form__input mb-2"
-        type="name" 
-        name="name" 
-        placeholder="Име" 
-        v-model="name" />
-      <p 
-        class="text-sm text-red-400" 
-        v-if="validation.hasError('name')">
-        {{ validation.firstError('name') }}
-      </p>
-    </div>
-    <div class="register-form__group w-full mb-4">
-      <input 
-        class="register-form__input mb-2"
-        type="email" 
-        autocomplete="off"
-        name="email" 
-        placeholder="Имейл" 
-        v-model="email" />
-      <p 
-        class="text-sm text-red-400" 
-        v-if="validation.hasError('email')">
-        {{ validation.firstError('email') }}
-      </p>
-    </div>
-    <div class="register-form__group w-full mb-6">
-      <input 
-        class="register-form__input mb-2"
-        type="password" 
-        name="password" 
-        placeholder="Парола"
-        v-model="password" />
-      <p 
-        class="text-sm text-red-400" 
-        v-if="validation.hasError('password')"
-        v-html="validation.firstError('password')">
-      </p>
-    </div>
+  <form class="register-form max-w-xs my-0 mx-auto" @submit.prevent="">
+    <Field
+      class="register-form__field w-full mb-4"
+      id="name"
+      type="text"
+      label="От кого?"
+      placeholder="Вашето име"
+      v-model.trim="name"
+      :errorMessage="validation.firstError('name')"
+    />
+    <Field
+      class="register-form__field w-full mb-4"
+      id="email"
+      type="text"
+      label="Имейл"
+      placeholder="Вашият имейл"
+      v-model.trim="email"
+      :errorMessage="validation.firstError('email')"
+    />
+    <Field
+      class="register-form__field w-full mb-8"
+      id="password"
+      type="password"
+      label="Пaрола"
+      placeholder="Вашата парола"
+      v-model.trim="password"
+      :errorMessage="validation.firstError('password')"
+    />
     <Button
-      class="register-form__btn"
+      class="register-form__btn w-full"
       classes="is-primary"
       label="Регистрация"
       @click.native="register">
     </Button>
-    <div 
-      class="register-form__error mt-6 border-2 border-red-400 p-4"
-      v-if="error">
-      <p class="text-sm text-red-400" v-html="error"></p>
+    <div v-if="error" class="register-form__errorborder-2 rounded-md border-red-400 p-4 mt-8">
+      <Typography
+        class="text-red-400"
+        :name="typographyEnum.Body"
+        :text="error"
+      ></Typography>
     </div>
     <div class="regoster-form__more-actions flex justify-end py-16">
       <Button
@@ -64,13 +53,15 @@
 <script>
 import { mapGetters, mapActions } from "vuex"
 import { Validator } from 'simple-vue-validator'
+import { TypographyEnum } from '~/constants/enums'
 import authService from '~/services/auth'
 export default {
   data() {
     return {
-      name: '',
-			email: '',
-      password: '',
+      typographyEnum: TypographyEnum,
+      name: null,
+			email: null,
+      password: null,
       error: null,
     }
   },
@@ -113,14 +104,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss" scoped>
-.register-form {
-  max-width: 280px;
-  margin: 0 auto;
-  &__btn {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-</style>

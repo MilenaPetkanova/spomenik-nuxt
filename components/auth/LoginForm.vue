@@ -1,46 +1,40 @@
 <template>
-  <form class="login-form" @submit.prevent="">
-    <div class="login-form__group w-full mb-4">
-      <input 
-        class="login-form__input mb-2"
-        type="email" 
-        autocomplete="off"
-        name="email" 
-        placeholder="Имейл" 
-        v-model="email" />
-      <p 
-        class="text-sm text-red-400" 
-        v-if="validation.hasError('email')">
-        {{ validation.firstError('email') }}
-      </p>
-    </div>
-    <div class="login-form__group w-full mb-6">
-      <input 
-        class="login-form__input mb-2"
-        type="password" 
-        name="password" 
-        placeholder="Парола"
-        v-model="password" />
-      <p 
-        class="text-sm text-red-400" 
-        v-if="validation.hasError('password')"
-        v-html="validation.firstError('password')">
-      </p>
-    </div>
+  <form class="login-form max-w-xs my-0 mx-auto" @submit.prevent="">
+    <Field
+      class="login-form__field w-full mb-4"
+      id="email"
+      type="text"
+      label="Имейл"
+      placeholder="Вашият имейл"
+      v-model.trim="email"
+      :errorMessage="validation.firstError('email')"
+    />
+    <Field
+      class="login-form__field w-full mb-8"
+      id="password"
+      type="password"
+      label="Пaрола"
+      placeholder="Вашата парола"
+      v-model.trim="password"
+      :errorMessage="validation.firstError('password')"
+    />
     <Button
-      class="login-form__btn"
+      class="login-form__btn w-full"
       classes="is-primary"
       label="Вход"
       @click.native="login">
     </Button>
-    <div 
-      class="login-form__error mt-6 border-2 border-red-400 p-4"
-      v-if="error">
-      <p class="text-sm text-red-400" v-html="error"></p>
+    <!-- TODO: Component for errors/warnings/info -->
+    <div v-if="error" class="login-form__errorborder-2 rounded-md border-red-400 p-4 mt-8">
+      <Typography
+        class="text-red-400"
+        :name="typographyEnum.Body"
+        :text="error"
+      ></Typography>
     </div>
-    <div class="regoster-form__more-actions flex flex-col justify-end items-end py-16">
+    <div class="login-form__more-actions flex flex-col justify-end items-end py-16">
       <Button
-        classes="is-link mb-4"
+        classes="is-link mb-2"
         label="Регистрация"
         @click.native="$router.push('/auth/register')">
       </Button>
@@ -55,10 +49,12 @@
 <script>
 import { mapGetters, mapActions } from "vuex"
 import { Validator } from 'simple-vue-validator'
+import { TypographyEnum } from '~/constants/enums'
 import authService from '~/services/auth'
 export default {
   data() {
     return {
+      typographyEnum: TypographyEnum,
 			email: null,
       password: null,
       error: null,
@@ -94,14 +90,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss" scoped>
-.login-form {
-  max-width: 280px;
-  margin: 0 auto;
-  &__btn {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-</style>
