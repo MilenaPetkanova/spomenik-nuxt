@@ -1,7 +1,9 @@
 <template>
-    <component :is="tagComputed" :class="classesComputed">
-       {{ text }}
-    </component>
+  <component 
+    :is="tagComputed" 
+    :class="classesComputed" 
+    v-html="text"
+  ></component>
 </template>
 
 <script>
