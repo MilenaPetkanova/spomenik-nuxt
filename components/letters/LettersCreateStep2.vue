@@ -23,31 +23,31 @@
 						@toggle-is-open="toggleMenu"
 					>
 						<template v-slot:list>
-							<ul class="dropdown__elements flex flex-col">
-								<li class="dropdown__element border-b-2 border-lavender-indigo">
+							<ul class="dropdown__menu-elements">
+								<li class="dropdown__menu-element">
 									<Button 
-										class="dropdown__btn-edit"
+										class="dropdown__menu-btn is-edit"
 										classes="is-borderless"
 										label="Редактирайте">
 									</Button>
 								</li>
-								<li class="dropdown__element border-b-2 border-lavender-indigo">
+								<li class="dropdown__menu-element">
 									<Button 
-										class="dropdown__btn-share"
+										class="dropdown__menu-btn is-share"
 										classes="is-borderless"
 										label="Споделете">
 									</Button>
 								</li>
-								<li class="dropdown__element border-b-2 border-lavender-indigo">
+								<li class="dropdown__menu-element">
 									<Button 
-										class="dropdown__btn-copy-link"
+										class="dropdown__menu-btn is-copy-link"
 										classes="is-borderless"
 										label="Копирайте линка">
 									</Button>
 								</li>
-								<li class="dropdown__element">
+								<li class="dropdown__menu-element">
 									<Button 
-										class="dropdown__btn-delete"
+										class="dropdown__menu-btn is-delete"
 										classes="is-borderless"
 										label="Изтрийте">
 									</Button>
@@ -59,7 +59,10 @@
 			</div>
 		</template>
 		<template v-slot:body>
-			<LettersDetails />
+      <LettersCard
+        class="px-4"
+        :letter="shownLetter"
+      ></LettersCard>
 		</template>
 	</Modal>
 </template>
@@ -74,6 +77,7 @@ export default {
 	},
   computed:{
 		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+    ...mapGetters('letters', ['shownLetter']),
 	},
 	methods: {
     ...mapActions('modals', ['showModal']),
