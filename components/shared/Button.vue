@@ -104,9 +104,5 @@ export default {
     @apply w-12;
     height: 52px;
   }
-
-  &.is-pill {
-    @apply rounded-4xl py-2 px-4;
-  }
 }
 </style>
