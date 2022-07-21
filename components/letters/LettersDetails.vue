@@ -3,10 +3,12 @@
 		<div class="letter-post__heading">
 			<div class="container flex justify-between py-4">
 				<span class="flex">
-					<div v-if="shownLetter.createdAt" class="flex items-center mr-6">
-						<Icon name="calendar" size="xs"></Icon>
-						<p class="text-sm ml-2">{{ $moment(shownLetter.createdAt).format('LL') }}</p>
-					</div>
+          <IconLabel
+            v-if="shownLetter.createdAt"
+            class="mr-6"
+            icon="calendar"
+            :label="$moment(shownLetter.createdAt).format('LL')"
+          ></IconLabel>
 				</span>
 			</div>
 		</div>

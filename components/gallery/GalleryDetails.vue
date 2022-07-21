@@ -7,14 +7,18 @@
 		<div class="gallery-post__heading">
 			<div class="container flex justify-between py-2 pr-1">
 				<span class="flex">
-					<div v-if="post.year" class="flex items-center mr-6">
-						<Icon name="calendar" size="xs"></Icon>
-						<p class="text-sm ml-2">{{post.year}}</p>
-					</div>
-					<div v-if="post.location" class="flex items-center mr-6">
-						<Icon name="location-dot" size="xs"></Icon>
-						<p class="text-sm ml-2">{{post.location}}</p>
-					</div>
+          <IconLabel
+            v-if="post.year"
+            class="mr-6"
+            icon="calendar"
+            :label="post.year"
+          ></IconLabel>
+          <IconLabel
+            v-if="post.location"
+            class="mr-6"
+            icon="location-dot"
+            :label="post.location"
+          ></IconLabel>
 				</span>
 			</div>
 		</div>
