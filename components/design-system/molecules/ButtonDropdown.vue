@@ -52,27 +52,37 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .dropdown {
   @apply relative;
   
   &__btn {
-    @apply relative;
-
-    &.is-open {
-      @apply rounded-b-none;
-
-      &::after {
-        content: " ";
-        @apply block absolute top-auto w-full h-1 z-50 bg-eerie-black;
-        bottom: -3px;
+    &.is-secondary {
+      @apply relative;
+  
+      &.is-open {
+        @apply rounded-b-none;
+  
+        &::after {
+          content: " ";
+          @apply block absolute top-auto w-full h-1 z-30 bg-eerie-black rounded-md;
+          bottom: -3px;
+        }
       }
     }
   }
 
   &__menu {
-    @apply absolute right-0 top-full min-w-max z-40 bg-eerie-black border-2 border-lavender-indigo;
+    @apply absolute right-0 top-full min-w-max z-20 bg-eerie-black border-2 border-lavender-indigo;
     margin-top: -2px;
+
+    &-elements {
+      @apply flex flex-col;
+    }
+
+    &-element {
+      @apply border-b-2 border-lavender-indigo;
+    }
   }
 }
 </style>

@@ -2,6 +2,7 @@
   <div class="icon-label">
     <Icon
       class="icon-label__icon"
+      size="xs"
       :name="icon"
     ></Icon>
     <Typography

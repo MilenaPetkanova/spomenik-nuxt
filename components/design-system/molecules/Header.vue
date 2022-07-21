@@ -10,26 +10,26 @@
 					@toggle-is-open="toggleCreateMenu"
 				>
 					<template v-slot:list>
-						<ul class="dropdown__elements flex flex-col">
-							<li class="dropdown__element border-b-2 border-lavender-indigo">
+						<ul class="dropdown__menu-elements">
+							<li class="dropdown__menu-element">
 								<Button 
-									class="dropdown__btn-create"
+									class="dropdown__menu-btn is-create"
 									classes="is-borderless"
 									label="Добавете писмо"
 									@click.native="showModal(modalsEnum.LetterCreateStep1); toggleMainMenu(false)">
 								</Button>
 							</li>
-							<li class="dropdown__element border-b-2 border-lavender-indigo">
+							<li class="dropdown__menu-element">
 								<Button 
-									class="dropdown__btn-create"
+									class="dropdown__menu-btn is-create"
 									classes="is-borderless"
 									label="Добавете снимка"
 									@click.native="showModal(modalsEnum.GalleryCreateStep1); toggleMainMenu(false)">
 								</Button>
 							</li>
-							<li class="dropdown__element">
+							<li class="dropdown__menu-element">
 								<Button 
-									class="dropdown__btn-create"
+									class="dropdown__menu-btn is-create"
 									classes="is-borderless"
 									label="Добавете видео">
 								</Button>
@@ -44,10 +44,10 @@
 					@toggle-is-open="toggleMainMenu"
 				>
 					<template v-slot:list>
-						<ul class="dropdown__elements flex flex-col">
-							<li class="dropdown__element">
+						<ul class="dropdown__menu-elements flex flex-col">
+							<li class="dropdown__menu-element">
 								<Button 
-									class="dropdown__btn-redirect"
+									class="dropdown__menu-btn is-redirect"
 									classes="is-borderless"
 									label="Изход"
 									@click.native="logout(); $router.push('auth/login')">
