@@ -26,14 +26,11 @@
         <!-- TODO: Rename colors -->
 				<img class="object-cover" :src="newRecordSrc" alt="image-preview" /> 
 				<div class="flex flex-col pl-4">
-          <!-- TODO: Use dropdown for the year -->
-          <Field
-            class="w-full mb-4"
-            id="year"
-            type="text"
+          <Select
+            class="mb-4"
             label="Година"
-            placeholder="2022"
-            v-model.trim="year"
+            :options="years"
+            v-model="year"
           />
           <Field
             class="w-full mb-4"
@@ -72,6 +69,12 @@ export default {
 	computed:{
     ...mapGetters('gallery', ['newRecordSrc']),
 		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+    years() {
+      const currentYear = this.$moment().year()
+      const yearsCount = 100
+      const yearsBack = Array.from({length: yearsCount}, (v, i) => currentYear - yearsCount + i + 1)
+      return yearsBack.reverse()
+    }
 	},
 	methods: {
 		...mapActions('gallery', ['initGallery', 'updateNewRecord']),
@@ -98,7 +101,7 @@ export default {
 
 <style scoped>
 img {
+  width: 142px;
   height: 168px;
-  width: auto;
 }
 </style>
