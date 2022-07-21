@@ -1,13 +1,13 @@
 <template>
-  <nav class="nav" :class="navClasses">
-    <ul class="nav__list flex">
+  <nav class="nav">
+    <ul class="nav__list">
       <li
-        class="nav__element mr-3" 
+        class="nav__element" 
         v-for="(element, index) in navElements" 
         :key="index">
         <Button 
           class="nav__btn" 
-          :classes="[currentRoute === element.route ? 'is-primary is-pill' : 'is-secondary is-pill']"
+          :classes="[currentRoute === element.route ? 'is-tertiary' : 'is-borderless']"
           :label="element.label"
           @click.native="$router.push(element.route)">
         </Button>
@@ -18,23 +18,20 @@
 
 <script>
 export default {
-  props: {
-    navClasses: String,
-  },
   data() {
     return {
       navElements: [
         {
-          route: 'gallery',
-          label: 'Галерия',
-          icon: 'photo-film',
-          type: 'primary',
-        },
-        {
           route: 'letters',
           label: 'Писма',
-          icon: 'book',
-          type: 'primary',
+        },
+        {
+          route: 'gallery',
+          label: 'Галерия',
+        },
+        {
+          route: 'videos',
+          label: 'Видеа',
         },
       ],
     }
@@ -46,3 +43,25 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.nav {
+  &__list {
+    @apply flex justify-between border-b-2 border-blue;
+  }
+
+  &__btn {
+    @apply rounded-b-none;
+
+    &.is-tertiary {
+      @apply relative border-b-eerie-black;
+
+      &::after {
+        content: " ";
+        @apply block absolute top-auto w-full h-1 bg-eerie-black;
+        bottom: -5px;
+      }
+    }
+  }
+}
+</style>

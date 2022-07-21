@@ -11,7 +11,7 @@ import { TypographyEnum } from '~/constants/enums'
 export default {
     props: {
         name: Number,
-        text: String,
+        text: [String, Number],
         tag: String,
         classes: String,
     },
