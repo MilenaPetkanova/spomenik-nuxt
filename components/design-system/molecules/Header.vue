@@ -73,9 +73,9 @@ import { NamesStatic } from '~/constants/statics'
 export default {
   data() {
     return {
-		namesStatic: NamesStatic,
-		isMainMenuOpen: false,
-		isCreateMenuOpen: false,
+      namesStatic: NamesStatic,
+      isMainMenuOpen: false,
+      isCreateMenuOpen: false,
     }
   },
 	computed:{
