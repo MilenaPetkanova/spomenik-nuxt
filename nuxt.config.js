@@ -38,11 +38,12 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
     dirs: [
-      '~/components/shared',
       '~/components/auth',
       '~/components/letters',
       '~/components/gallery',
       '~/components/design-system',
+      '~/components/design-system/atoms',
+      '~/components/design-system/molecules',
     ]
   },
 
