@@ -37,7 +37,7 @@ export default {
   }
 
   &__label {
-    @apply text-blue;
+    @apply text-tertiary-color;
   }
 }
 </style>

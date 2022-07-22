@@ -12,7 +12,7 @@
 						@click.native="showModal(null)">
 					</Button>
 					<Typography
-            class="text-blue"
+            class="text-tertiary-color"
 					  name="bold"
 					  text="Ново писмо"
 					></Typography>

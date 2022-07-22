@@ -84,15 +84,15 @@ export default {
 <style lang="scss" scoped>
 .field {
   &__label {
-    @apply w-full block text-left text-blue mb-2;
+    @apply w-full block text-left text-tertiary-color mb-2;
   }
 
   &__error {
-    @apply text-pastel-red text-right block mt-1 mr-1;
+    @apply text-error-color text-right block mt-1 mr-1;
   }
 
   &__element {
-    @apply w-full text-ghost-white bg-eerie-black border-2 rounded-md border-blue py-3 px-5;
+    @apply w-full text-light-color bg-dark-color border-2 rounded-md border-tertiary-color py-3 px-5;
     
     &.is-textarea {
       @apply resize-none max-h-32;
@@ -100,24 +100,24 @@ export default {
 
     &:focus, 
     &:focus-visible {
-      @apply outline-none border-lavender-indigo; 
+      @apply outline-none border-primary-color; 
       
       & ~ .field__label {
-        @apply text-lavender-indigo;
+        @apply text-primary-color;
       }
     }
 
     &::-webkit-input-placeholder {
-      @apply text-grey italic;
+      @apply text-neutral-color italic;
     }
     &::-moz-placeholder {
-      @apply text-grey italic;
+      @apply text-neutral-color italic;
     }
     &::-ms-placeholder {
-      @apply text-grey italic;
+      @apply text-neutral-color italic;
     }
     &::placeholder {
-      @apply text-grey italic;
+      @apply text-neutral-color italic;
     }
 
     &:-webkit-autofill,

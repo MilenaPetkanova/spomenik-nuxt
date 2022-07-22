@@ -26,7 +26,6 @@
 		<template v-slot:body>
 			<div class="row flex p-4">
         <!-- TODO: Maybe add styles for modal header and body? -->
-        <!-- TODO: Rename colors -->
 				<img class="object-cover" :src="newRecordSrc" alt="image-preview" /> 
 				<div class="flex flex-col pl-4">
           <Select

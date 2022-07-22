@@ -1,5 +1,5 @@
 <template>
-  <main class="layout is-default font-montserrat bg-eerie-black">
+  <main class="layout is-default font-montserrat bg-dark-color">
     <Header />
     <Nuxt />
   </main>

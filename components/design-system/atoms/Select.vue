@@ -1,29 +1,29 @@
 <template>
   <div class="select relative">
     <Typography
-      class="select__label w-full block text-left text-blue mb-2"
-      :class="{ 'text-lavender-indigo': isOpen }"
+      class="select__label w-full block text-left text-tertiary-color mb-2"
+      :class="{ 'text-primary-color': isOpen }"
       tag="label"
       name="overline"
       :text="label"
     ></Typography>
     <div 
-      class="select__btn relative cursor-pointer w-full text-left text-ghost-white bg-eerie-black border-2 rounded-md border-blue py-3 px-5" 
-      :class="{ 'text-lavender-indigo': isOpen }"
+      class="select__btn relative cursor-pointer w-full text-left text-light-color bg-dark-color border-2 rounded-md border-tertiary-color py-3 px-5" 
+      :class="{ 'text-primary-color': isOpen }"
       @click="isOpen = !isOpen"
     >
       <Typography 
-        class="select__btn-text text-ghost-white"
+        class="select__btn-text text-light-color"
         :text="selectedOption"
       ></Typography>
       <Icon 
-        class="select__btn-icon absolute top-4 right-4 left-auto text-blue"
-        :class="{ 'text-lavender-indigo': isOpen }" 
+        class="select__btn-icon absolute top-4 right-4 left-auto text-tertiary-color"
+        :class="{ 'text-primary-color': isOpen }" 
         name="chevron-down"
       ></Icon>
     </div>
     <ul 
-      class="select__options absolute left-0 top-auto mt-1 w-full max-h-72 overflow-auto text-ghost-white bg-eerie-black border-2 rounded-md border-lavender-indigo" 
+      class="select__options absolute left-0 top-auto mt-1 w-full max-h-72 overflow-auto text-light-color bg-dark-color border-2 rounded-md border-primary-color" 
       v-show="isOpen"
     >
       <li 
@@ -32,8 +32,8 @@
         @click="selectOption(option)"
       >
         <Typography 
-          class="select__btn-text text-ghost-white"
-          :class="{ 'text-lavender-indigo': option === selectedOption }"
+          class="select__btn-text text-light-color"
+          :class="{ 'text-primary-color': option === selectedOption }"
           :text="option"
         ></Typography>
       </li>
@@ -83,7 +83,7 @@ export default {
   &__option {
     &:hover {
       & > * {
-        @apply text-lavender-indigo;
+        @apply text-primary-color;
       }
     }
   }

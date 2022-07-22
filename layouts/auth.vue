@@ -1,5 +1,5 @@
 <template>
-  <main class="layout is-auth font-montserrat bg-eerie-black">
+  <main class="layout is-auth font-montserrat bg-dark-color">
     <header class="header">
       <div class="header__container container flex justify-center items-center pt-8 pb-4">
         <Logo />

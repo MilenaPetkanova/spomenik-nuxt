@@ -81,7 +81,7 @@ export default {
     }
 	},
   methods: {
-    // TODO: white methods for the actions dropdown
+    // TODO: write methods for the actions dropdown
   },
 }
 </script>

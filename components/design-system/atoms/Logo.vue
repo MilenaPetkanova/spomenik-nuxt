@@ -4,14 +4,14 @@
       <Typography 
         name="header-3" 
         :text="$constants('AppName')" 
-        class="text-lavender-indigo"
+        class="text-primary-color"
       ></Typography>
     </template>
     <template v-if="type === typeEnum.Authenticated">
       <Typography 
         name="subtitle" 
         :text="$constants('AppName')" 
-        class="text-lavender-indigo"
+        class="text-primary-color"
       ></Typography>
       <Typography 
         name="overline" 

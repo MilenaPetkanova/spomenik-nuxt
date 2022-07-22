@@ -38,7 +38,7 @@ export default {
     @apply 
     w-full 
     h-full 
-    bg-eerie-black
+    bg-dark-color
     overflow-auto;
   }
 
