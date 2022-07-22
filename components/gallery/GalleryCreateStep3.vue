@@ -12,54 +12,40 @@
 				</Button>
 				<span class="flex items-center">
 					<Button
-						class="is-borderless is-icon"
+						class="is-borderless is-icon mr-2"
 						icon="share-nodes"
 						@click.native="showModal(modalsEnum.Share)">
 					</Button>
-					<ButtonDropdown 
-						icon="ellipsis-vertical"
-						:isOpen="isMenuShown" 
-						classes="is-borderless is-icon ml-2"
-						@toggle-is-open="toggleMenu"
-					>
+          <ButtonDropdown icon="ellipsis-vertical">
 						<template v-slot:list>
-							<ul class="dropdown__menu-elements">
-								<li class="dropdown__menu-element">
-									<Button 
-										class="dropdown__menu-btn is-edit"
-										classes="is-borderless"
-										label="Редактирайте">
-									</Button>
-								</li>
-								<li class="dropdown__menu-element">
-									<Button 
-										class="dropdown__menu-btn is-share"
-										classes="is-borderless"
-										label="Споделете">
-									</Button>
-								</li>
-								<li class="dropdown__menu-element">
-									<Button 
-										class="dropdown__menu-btn is-copy-link"
-										classes="is-borderless"
-										label="Копирайте линка">
-									</Button>
-								</li>
-								<li class="dropdown__menu-element">
-									<Button 
-										class="dropdown__menu-btn is-delete"
-										classes="is-borderless"
-										label="Изтрийте">
-									</Button>
-								</li>
-							</ul>
+              <li class="dropdown__menu-element">
+                <Button 
+                  class="dropdown__menu-btn"
+                  classes="is-borderless"
+                  label="Споделете">
+                </Button>
+              </li>
+              <li class="dropdown__menu-element">
+                <Button 
+                  class="dropdown__menu-btn"
+                  classes="is-borderless"
+                  label="Редактирайте">
+                </Button>
+              </li>
+              <li class="dropdown__menu-element">
+                <Button 
+                  class="dropdown__menu-btn"
+                  classes="is-borderless"
+                  label="Изтрийте">
+                </Button>
+              </li>
 						</template>
 					</ButtonDropdown>
 				</span>
 			</div>
 		</template>
 		<template v-slot:body>
-			<GalleryDetails :post="newRecord" />
+			<GalleryCard :post="newRecord"></GalleryCard>
 		</template>
 	</Modal>
 </template>
@@ -67,20 +53,12 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-	data() {
-		return {
-			isMenuShown: false,
-		}
-	},
-	computed:{
-    ...mapGetters('gallery', ['newRecord']),
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
-	},
-	methods: {
-		...mapActions('modals', ['showModal']),
-		toggleMenu(state) {
-			this.isMenuShown = state
-		},
-	}
+  computed: {
+    ...mapGetters("gallery", ["newRecord"]),
+    ...mapGetters("modals", ["shownModal", "modalsEnum"]),
+  },
+  methods: {
+    ...mapActions("modals", ["showModal"]),
+  },
 } 
 </script>

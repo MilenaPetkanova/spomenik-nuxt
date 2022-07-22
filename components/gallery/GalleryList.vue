@@ -35,7 +35,6 @@ export default {
     },
     async mounted() {
         await this.fetchGallery();
-        console.log(this.gallery[0]);
     },
     methods: {
         ...mapActions("gallery", ["initGallery"]),
