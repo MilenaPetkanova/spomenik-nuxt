@@ -69,7 +69,7 @@ export default {
                 case TypographyEnum.Small:
                     return 'font-montserrat text-xs'
                 case TypographyEnum.Overline:
-                    return 'font-montserrat text-xs uppercase font-bold tracking-widest'
+                    return 'font-montserrat text-xxs uppercase font-bold tracking-widest'
                 case TypographyEnum.ButtonText:
                     return 'font-montserrat text-sm uppercase font-bold tracking-wider'
                 case TypographyEnum.Link:

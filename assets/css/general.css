@@ -1,3 +1,4 @@
+/* TODO Refactor this file */
 .layout {
   min-height: 100vh;
   height: 100%;
@@ -9,6 +10,13 @@
     padding-right: 16px;
   }
 }
-a, button, h1, h2, h3, h4, h4, h6, p, ul, li, svg, b, strong {
+a, button, h1, h2, h3, h4, h4, h6, ul, li, svg, b, strong {
   @apply text-blue;
+}
+p, em, b {
+  @apply text-ghost-white;
+}
+.ql-editor {
+  max-height: 420px;
+  overflow: auto;
 }

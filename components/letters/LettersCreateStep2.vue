@@ -12,54 +12,40 @@
 				</Button>
 				<span class="flex items-center">
 					<Button
-						class="is-borderless is-icon"
+						class="is-borderless is-icon mr-2"
 						icon="share-nodes"
 						@click.native="showModal(modalsEnum.Share)">
 					</Button>
-					<ButtonDropdown 
-						icon="ellipsis-vertical"
-						:isOpen="isMenuShown" 
-						classes="is-borderless is-icon ml-2"
-						@toggle-is-open="toggleMenu"
-					>
+					<ButtonDropdown icon="ellipsis-vertical">
 						<template v-slot:list>
-							<ul class="dropdown__elements flex flex-col">
-								<li class="dropdown__element border-b-2 border-lavender-indigo">
-									<Button 
-										class="dropdown__btn-edit"
-										classes="is-borderless"
-										label="Редактирайте">
-									</Button>
-								</li>
-								<li class="dropdown__element border-b-2 border-lavender-indigo">
-									<Button 
-										class="dropdown__btn-share"
-										classes="is-borderless"
-										label="Споделете">
-									</Button>
-								</li>
-								<li class="dropdown__element border-b-2 border-lavender-indigo">
-									<Button 
-										class="dropdown__btn-copy-link"
-										classes="is-borderless"
-										label="Копирайте линка">
-									</Button>
-								</li>
-								<li class="dropdown__element">
-									<Button 
-										class="dropdown__btn-delete"
-										classes="is-borderless"
-										label="Изтрийте">
-									</Button>
-								</li>
-							</ul>
+              <li class="dropdown__menu-element">
+                <Button 
+                  class="dropdown__menu-btn"
+                  classes="is-borderless"
+                  label="Споделете">
+                </Button>
+              </li>
+              <li class="dropdown__menu-element">
+                <Button 
+                  class="dropdown__menu-btn"
+                  classes="is-borderless"
+                  label="Редактирайте">
+                </Button>
+              </li>
+              <li class="dropdown__menu-element">
+                <Button 
+                  class="dropdown__menu-btn"
+                  classes="is-borderless"
+                  label="Изтрийте">
+                </Button>
+              </li>
 						</template>
 					</ButtonDropdown>
 				</span>
 			</div>
 		</template>
 		<template v-slot:body>
-			<LettersDetails />
+      <LettersCard :letter="shownLetter"></LettersCard>
 		</template>
 	</Modal>
 </template>
@@ -67,19 +53,12 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-	data() {
-		return {
-			isMenuShown: false,
-		}
-	},
   computed:{
 		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+    ...mapGetters('letters', ['shownLetter']),
 	},
 	methods: {
     ...mapActions('modals', ['showModal']),
-		toggleMenu(state) {
-			this.isMenuShown = state
-		},
 	},
 }
 </script>

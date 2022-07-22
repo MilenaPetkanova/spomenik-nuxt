@@ -11,7 +11,11 @@
 						icon="xmark"
 						@click.native="showModal(null)">
 					</Button>
-					<Typography :name="typographyEnum.Bold" text="Ново писмо"></Typography>
+					<Typography
+            class="text-blue"
+					  :name="typographyEnum.Bold"
+					  text="Ново писмо"
+					></Typography>
 				</span>
 				<Button
 					class="is-borderless is-icon"
@@ -21,9 +25,8 @@
 			</div>
 		</template>
 		<template v-slot:body>
-			<div class="container py-8">
-        <vue-editor v-model="content" :editorToolbar="editorToolbar" />
-			</div>
+      <!-- TODO: being able to edit the date -->
+      <vue-editor v-model="content" :editorToolbar="editorToolbar" />
 		</template>
 	</Modal>
 </template>

@@ -1,24 +1,17 @@
 <template>
-  <div class="dropdown relative">
+  <div class="dropdown">
     <Button
-      class="dropdown__btn-open "
-      :classes="`is-icon ${classes}`"
+      class="dropdown__btn"
+      :classes="btnClasses"
       :icon="icon"
-      v-if="!isOpen"
-      @click.native="toggleIsOpen(true)">
-    </Button>
-    <Button
-      class="dropdown__btn-close"
-      :classes="`is-icon ${classes}`"
-      icon="xmark"
-      v-if="isOpen"
-      @click.native="toggleIsOpen(false)">
+      @click.native="toggleDropdown()">
     </Button>
     <transition name="slide-down">
       <menu
-        class="dropdown__menu absolute right-0 top-full min-w-max z-50 
-        bg-eerie-black border-2 border-lavender-indigo -mt-0.5"
-        v-if="isOpen">
+        class="dropdown__menu"
+        v-show="isOpen">
+        <ul class="dropdown__menu-elements"> 
+        </ul>
         <slot name="list"></slot>
       </menu>
     </transition>
@@ -28,27 +21,77 @@
 <script>
 export default {
   props: {
-    isOpen: {
-      default: false,
-      type: Boolean,
-    },
     icon: {
-      default: null,
       type: [String, Array],
+      default: 'ellipsis',
+      required: false,
     },
-    classes: {
-      default: null,
+    btnClasses: {
       type: String,
+      default: 'is-icon is-borderless',
+      required: false,
     },
     menuClasses: {
       default: null,
       type: String,
     },
   },
-  methods: {
-    toggleIsOpen(state) {
-      this.$emit("toggle-is-open", state);
+  data() {
+    return {
+      isOpen: false,
     }
+  },
+  methods: {
+    toggleDropdown() {
+      this.isOpen = !this.isOpen
+    },
+    close (e) {
+      if (!this.$el.contains(e.target)) {
+        this.isOpen = false
+      }
+    }
+  },
+  mounted () {
+    document.addEventListener('click', this.close)
+  },
+  beforeDestroy () {
+    document.removeEventListener('click',this.close)
   }
 }
 </script>
+
+<style lang="scss">
+.dropdown {
+  @apply relative;
+  
+  &__menu {
+    @apply 
+    absolute 
+    right-0 
+    top-full 
+    mt-1 
+    min-w-max 
+    z-20 
+    bg-eerie-black 
+    border-2 
+    rounded-md 
+    border-lavender-indigo;
+
+    &-elements {
+      @apply flex flex-col;
+    }
+
+    &-element {
+      @apply border-b-2 border-lavender-indigo;
+
+      &:last-child {
+        @apply border-b-0;
+      }
+    }
+
+    &-btn {
+      @apply w-full justify-start;
+    }
+  }
+}
+</style>

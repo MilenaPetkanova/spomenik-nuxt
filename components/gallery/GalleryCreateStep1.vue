@@ -4,7 +4,7 @@
 		v-show="shownModal === modalsEnum.GalleryCreateStep1" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
-			<div class="flex items-center justify-between px-1">
+			<div class="flex items-center justify-between">
 				<span class="flex items-center">
 					<Button
 						class="is-borderless is-icon"
@@ -24,19 +24,17 @@
 		<template v-slot:body>
 			<div class="h-full flex flex-col items-center">
 				<template v-if="!newRecordSrc">
-					<div class="px-4">
-						<Icon name="file-image" size="4x" class="mt-12 mb-8"></Icon>
-						<label class="btn is-primary">
-							<input
-								class="hidden"
-								type="file"
-								accept=".jpeg,.jpg,.png,image/jpeg,image/png"
-								aria-label="upload image button"
-								@change="selectFile"
-							/>
-							<Typography :name="typographyEnum.ButtonText" text="Изберете от устройството си"></Typography>
-						</label>
-					</div>
+          <Icon name="file-image" size="4x" class="mt-12 mb-8"></Icon>
+          <label class="btn is-primary">
+            <input
+              class="hidden"
+              type="file"
+              accept=".jpeg,.jpg,.png,image/jpeg,image/png"
+              aria-label="upload image button"
+              @change="selectFile"
+            />
+            <Typography :name="typographyEnum.ButtonText" text="Изберете от устройството си"></Typography>
+          </label>
 				</template>
 				<!-- TODO: Add loader -->
 				<template v-else>
@@ -91,6 +89,6 @@ img {
 	max-height: 100vh;
 }
 .btn.is-primary {
-	@apply px-4;
+	@apply w-full;
 }
 </style>

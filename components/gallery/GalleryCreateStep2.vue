@@ -11,7 +11,9 @@
 						icon="xmark"
 						@click.native="showModal(null)">
 					</Button>
-					<h1>Добавяне на снимка / видео</h1>
+          <!-- TODO: Remove typographyEnum from everywhere -->
+          <!-- TODO: Rename Typography to Text -->
+          <Typography :name="13" text="Нова снимка"></Typography>
 				</span>
 				<Button
 					class="is-borderless is-icon"

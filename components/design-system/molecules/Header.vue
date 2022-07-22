@@ -4,56 +4,60 @@
 			<Logo :fromName="namesStatic.from" :toName="namesStatic.to" />
 			<div class="header__actions flex">
 				<ButtonDropdown 
+          class="mr-2"
 					icon="plus"
-					classes="is-secondary"
-					:isOpen="isCreateMenuOpen" 
-					@toggle-is-open="toggleCreateMenu"
+					btnClasses="is-secondary w-14 h-14"
 				>
 					<template v-slot:list>
-						<ul class="dropdown__elements flex flex-col">
-							<li class="dropdown__element border-b-2 border-lavender-indigo">
-								<Button 
-									class="dropdown__btn-create"
-									classes="is-borderless"
-									label="Добавете писмо"
-									@click.native="showModal(modalsEnum.LetterCreateStep1); toggleMainMenu(false)">
-								</Button>
-							</li>
-							<li class="dropdown__element border-b-2 border-lavender-indigo">
-								<Button 
-									class="dropdown__btn-create"
-									classes="is-borderless"
-									label="Добавете снимка"
-									@click.native="showModal(modalsEnum.GalleryCreateStep1); toggleMainMenu(false)">
-								</Button>
-							</li>
-							<li class="dropdown__element">
-								<Button 
-									class="dropdown__btn-create"
-									classes="is-borderless"
-									label="Добавете видео">
-								</Button>
-							</li>
-						</ul>
+            <li class="dropdown__menu-element">
+              <Button 
+                class="dropdown__menu-btn"
+                classes="is-borderless"
+                label="Добавете писмо"
+                @click.native="showModal(modalsEnum.LetterCreateStep1)">
+              </Button>
+            </li>
+            <li class="dropdown__menu-element">
+              <Button 
+                class="dropdown__menu-btn"
+                classes="is-borderless"
+                label="Добавете снимка"
+                @click.native="showModal(modalsEnum.GalleryCreateStep1)">
+              </Button>
+            </li>
+            <li class="dropdown__menu-element">
+              <Button 
+                class="dropdown__menu-btn"
+                classes="is-borderless"
+                label="Добавете видео">
+              </Button>
+            </li>
 					</template>
 				</ButtonDropdown>
-				<ButtonDropdown 
-					icon="bars"
-					:isOpen="isMainMenuOpen" 
-					classes="is-borderless ml-2"
-					@toggle-is-open="toggleMainMenu"
-				>
+				<ButtonDropdown icon="bars">
 					<template v-slot:list>
-						<ul class="dropdown__elements flex flex-col">
-							<li class="dropdown__element">
-								<Button 
-									class="dropdown__btn-redirect"
-									classes="is-borderless"
-									label="Изход"
-									@click.native="logout(); $router.push('auth/login')">
-								</Button>
-							</li>
-						</ul>
+            <li class="dropdown__menu-element">
+              <Button 
+                class="dropdown__menu-btn"
+                classes="is-borderless"
+                label="Профил">
+              </Button>
+            </li>
+            <li class="dropdown__menu-element">
+              <Button 
+                class="dropdown__menu-btn"
+                classes="is-borderless"
+                label="Настройки">
+              </Button>
+            </li>
+            <li class="dropdown__menu-element">
+              <Button 
+                class="dropdown__menu-btn"
+                classes="is-borderless"
+                label="Изход"
+                @click.native="logout(); $router.push('auth/login')">
+              </Button>
+            </li>
 					</template>
 				</ButtonDropdown>
 			</div>
@@ -74,8 +78,6 @@ export default {
   data() {
     return {
       namesStatic: NamesStatic,
-      isMainMenuOpen: false,
-      isCreateMenuOpen: false,
     }
   },
 	computed:{
@@ -84,14 +86,6 @@ export default {
 	methods: {
 		...mapActions('auth', ['logout']),
 		...mapActions('modals', ['showModal']),
-		toggleMainMenu(state) {
-			this.isCreateMenuOpen = false
-			this.isMainMenuOpen = state
-		},
-		toggleCreateMenu(state) {
-			this.isMainMenuOpen = false
-			this.isCreateMenuOpen = state
-		},
 	}
 }
 </script>
