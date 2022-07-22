@@ -1,15 +1,10 @@
 <template>
 	<section class="gallery-list py-2">
-		<ul class="gallery-list__elements">
+		<ul v-if="gallery.length > 0" class="gallery-list__elements">
 			<li 
-			  class="gallery-list__element px-1 mb-2"
-				v-for="(element, index) in gallery" :key="index"
-			>
-				<img
-					class="gallery-list__thumb h-full object-cover"
-					:src="element.thumb"
-					@click="openGallery(index)"
-				>
+			  class="gallery-list__element mb-8"
+				v-for="(element, index) in gallery" :key="index">
+        <GalleryCard :post="element"></GalleryCard>
 			</li>
 		</ul>
 		<ShareModal v-if="shownModal === modalsEnum.Share" postUrl="test" />
@@ -40,6 +35,7 @@ export default {
     },
     async mounted() {
         await this.fetchGallery();
+        console.log(this.gallery[0]);
     },
     methods: {
         ...mapActions("gallery", ["initGallery"]),
@@ -61,18 +57,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.gallery-list {
-	&__elements {
-		display: flex;
-		flex-wrap: wrap;
-	}
-  &__element {
-		flex: 25%;
-		max-width: 25%;
-		@media screen and (max-width: 768px) {
-			flex: 33.33%;
-			max-width: 33.33%;
-		}
-  }
-}
+// .gallery-list {
+// 	&__elements {
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 	}
+//   &__element {
+// 		flex: 25%;
+// 		max-width: 25%;
+// 		@media screen and (max-width: 768px) {
+// 			flex: 33.33%;
+// 			max-width: 33.33%;
+// 		}
+//   }
+// }
 </style>
