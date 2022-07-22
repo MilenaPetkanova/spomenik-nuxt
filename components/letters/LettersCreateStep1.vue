@@ -13,7 +13,7 @@
 					</Button>
 					<Typography
             class="text-blue"
-					  :name="typographyEnum.Bold"
+					  name="bold"
 					  text="Ново писмо"
 					></Typography>
 				</span>
@@ -33,17 +33,15 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { TypographyEnum } from '~/constants/enums'
 export default {
   data() {
     return {
-    	typographyEnum: TypographyEnum,
-		content: '',
-		editorToolbar: [
-			["bold", "italic", "underline"],
-			[{ list: "ordered" }, { list: "bullet" }],
-			["image", "code-block"]
-		],
+      content: '',
+      editorToolbar: [
+        ["bold", "italic", "underline"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["image", "code-block"]
+      ],
     }
   },
   computed:{

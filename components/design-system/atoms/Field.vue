@@ -25,21 +25,20 @@
         class="field__label"
         :for="id"
         tag="label"
-        :name="typographyEnum.Overline"
+        name="overline"
         :text="label"
       ></Typography>
     </div>
     <Typography
       v-if="!isValid"
       class="field__error"
-      :name="typographyEnum.Small"
+      name="small"
       :text="errorMessage"
     ></Typography>
   </div>
 </template>
 
 <script>
-import { TypographyEnum } from '~/constants/enums'
 export default {
   props: {
     id: {
@@ -70,11 +69,6 @@ export default {
   model: {
     prop: "modelValue",
     event: "update"
-  },
-  data() {
-    return {
-      typographyEnum: TypographyEnum,
-    }
   },
   computed: {
     isValid() {

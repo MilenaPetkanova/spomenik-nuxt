@@ -8,15 +8,15 @@ export const Modals = {
 }
 
 export const TypographyEnum = {
-  Header1: 1 || '1',
-  Header2: 2 || '2',
-  Header3: 3 || '3',
-  Subtitle: 4 || '4',
-  Body: 11 || '11',
-  Emphasis: 12 || '12',
-  Bold: 13 || '13',
-  Small: 14 || '14',
-  Overline: 15 || '15',
-  ButtonText: 21 || '21',
-  Link: 22 || '22',
+  Header1: 'header-1',
+  Header2: 'header-2', 
+  Header3: 'header-3', 
+  Subtitle: 'subtitle',
+  Body: 'body',
+  Bold: 'bold',
+  Emphasis: 'emphasis',
+  Small: 'small',
+  Overline: 'overline',
+  ButtonText: 'button-text',
+  Link: 'link',
 }

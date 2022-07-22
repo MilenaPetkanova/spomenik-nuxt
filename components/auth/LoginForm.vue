@@ -29,7 +29,6 @@
     <div v-if="error" class="login-form__errorborder-2 rounded-md border-red-400 p-4 mt-8">
       <Typography
         class="text-red-400"
-        :name="typographyEnum.Body"
         :text="error"
       ></Typography>
     </div>
@@ -50,12 +49,10 @@
 <script>
 import { mapGetters, mapActions } from "vuex"
 import { Validator } from 'simple-vue-validator'
-import { TypographyEnum } from '~/constants/enums'
 import authService from '~/services/auth'
 export default {
   data() {
     return {
-      typographyEnum: TypographyEnum,
 			email: null,
       password: null,
       error: null,

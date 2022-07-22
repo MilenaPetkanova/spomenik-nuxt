@@ -11,9 +11,10 @@
 						icon="xmark"
 						@click.native="showModal(null)">
 					</Button>
-          <!-- TODO: Remove typographyEnum from everywhere -->
-          <!-- TODO: Rename Typography to Text -->
-          <Typography :name="13" text="Нова снимка"></Typography>
+          <Typography
+            name="bold"
+            text="Нова снимка"
+          ></Typography>
 				</span>
 				<Button
 					class="is-borderless is-icon"

@@ -11,7 +11,7 @@
 						icon="xmark"
 						@click.native="showModal(null); startNewRecord(null)">
 					</Button>
-					<Typography :name="typographyEnum.Bold" text="Нова снимка"></Typography>
+					<Typography name="bold" text="Нова снимка"></Typography>
 				</span>
 				<Button
 					v-if="newRecordSrc"
@@ -33,7 +33,7 @@
               aria-label="upload image button"
               @change="selectFile"
             />
-            <Typography :name="typographyEnum.ButtonText" text="Изберете от устройството си"></Typography>
+            <Typography name="button-text" text="Изберете от устройството си"></Typography>
           </label>
 				</template>
 				<!-- TODO: Add loader -->
@@ -47,13 +47,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { TypographyEnum } from '~/constants/enums'
 export default {
-	data() {
-		return {
-			typographyEnum: TypographyEnum,
-		}
-	},
 	computed:{
     ...mapGetters('gallery', ['newRecordSrc']),
 		...mapGetters('modals', ['shownModal', 'modalsEnum']),

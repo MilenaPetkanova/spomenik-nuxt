@@ -7,7 +7,7 @@
     ></Icon>
     <Typography
       class="icon-label__label"
-      :name="15"
+      name="overline"
       :text="label"
     ></Typography>
   </div>

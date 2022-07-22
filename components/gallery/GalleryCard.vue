@@ -62,7 +62,6 @@
       <Typography
         class="gallery-card__caption"
         :text="post.caption"
-        :name="11"
       ></Typography>
 		</div>
 	</div>

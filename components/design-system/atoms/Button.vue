@@ -9,24 +9,18 @@
       v-if="!isIconType"
       class="btn__label"
       :text="label"
-      :name="isLinkType ? typographyEnum.Link : typographyEnum.ButtonText"
+      :name="isLinkType ? 'link' : 'button-text'"
     ></Typography>
     <slot name="content"></slot>
   </button>
 </template>
 
 <script>
-import { TypographyEnum } from '~/constants/enums'
 export default {
   props: {
     classes: [String, Array],
     label: String,
     icon: [String, Array],
-  },
-  data() {
-    return {
-      typographyEnum: TypographyEnum,
-    }
   },
   computed: {
     isIconType() {

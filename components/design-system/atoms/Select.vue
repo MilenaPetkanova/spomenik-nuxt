@@ -4,7 +4,7 @@
       class="select__label w-full block text-left text-blue mb-2"
       :class="{ 'text-lavender-indigo': isOpen }"
       tag="label"
-      :name="typographyEnum.Overline"
+      name="overline"
       :text="label"
     ></Typography>
     <div 
@@ -14,7 +14,6 @@
     >
       <Typography 
         class="select__btn-text text-ghost-white"
-        :name="typographyEnum.Body" 
         :text="selectedOption"
       ></Typography>
       <Icon 
@@ -35,7 +34,6 @@
         <Typography 
           class="select__btn-text text-ghost-white"
           :class="{ 'text-lavender-indigo': option === selectedOption }"
-          :name="typographyEnum.Body" 
           :text="option"
         ></Typography>
       </li>
@@ -44,7 +42,6 @@
 </template>
 
 <script>
-import { TypographyEnum } from '~/constants/enums'
 export default {
   props: {
     label: {
@@ -64,7 +61,6 @@ export default {
   },
   data() {
     return {
-      typographyEnum: TypographyEnum,
       isOpen: false,
       selectedOption: this.modelValue ?? this.options[0],
     };
