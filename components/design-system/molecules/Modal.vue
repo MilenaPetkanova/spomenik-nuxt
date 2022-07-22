@@ -1,11 +1,13 @@
 <template>
   <div 
-		class="modal z-10 w-full h-full fixed top-0 left-0 flex justify-center" 
-		@click="$emit('close-modal')">
+		class="modal" 
+		@click="$emit('close-modal')"
+  >
     <div 
-			class="modal__window w-full h-full bg-eerie-black text-center" 
-			@click.stop>
-			<header class="modal__header py-4">
+			class="modal__window" 
+			@click.stop
+    >
+			<header class="modal__header">
 				<slot name="header"></slot>
 			</header>
 			<section class="modal__body">
@@ -17,17 +19,35 @@
 
 <script>
 export default {
-	props: {
-		headerClasses: {
-			default: '',
-			type: [String, Array],
-		}
-	},
 }
 </script>
 
 <style lang="scss" scoped>
 .modal {
-  background-color: #000000da;
+  @apply 
+  z-50 
+  w-full 
+  h-full 
+  fixed 
+  top-0 
+  left-0 
+  flex 
+  justify-center;
+
+  &__window {
+    @apply 
+    w-full 
+    h-full 
+    bg-eerie-black
+    overflow-auto;
+  }
+
+  &__header {
+    @apply py-4;
+  }
+
+  &__body {
+    @apply px-4 pb-8;
+  }
 }
 </style>
