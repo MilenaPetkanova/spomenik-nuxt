@@ -81,7 +81,7 @@ export default {
     }
 	},
   methods: {
-    // TODO: write methods for the actions dropdown
+    // FIXME: write methods for the actions dropdown
   },
 }
 </script>

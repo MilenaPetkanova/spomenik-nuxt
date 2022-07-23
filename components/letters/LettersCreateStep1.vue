@@ -25,7 +25,7 @@
 			</div>
 		</template>
 		<template v-slot:body>
-      <!-- TODO: being able to edit the date -->
+      <!-- FIXME: being able to edit the date -->
       <vue-editor v-model="content" :editorToolbar="editorToolbar" />
 		</template>
 	</Modal>
