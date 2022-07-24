@@ -9,24 +9,18 @@
       v-if="!isIconType"
       class="btn__label"
       :text="label"
-      :name="isLinkType ? typographyEnum.Link : typographyEnum.ButtonText"
+      :name="isLinkType ? 'link' : 'button-text'"
     ></Typography>
     <slot name="content"></slot>
   </button>
 </template>
 
 <script>
-import { TypographyEnum } from '~/constants/enums'
 export default {
   props: {
     classes: [String, Array],
     label: String,
     icon: [String, Array],
-  },
-  data() {
-    return {
-      typographyEnum: TypographyEnum,
-    }
   },
   computed: {
     isIconType() {
@@ -41,62 +35,62 @@ export default {
 
 <style lang="scss">
 .btn {
-  @apply block cursor-pointer rounded-md py-3 px-5 flex justify-center items-center;
+  @apply cursor-pointer rounded-md py-3 px-6 flex justify-center items-center;
 
   .svg-inline--fa {
-    @apply text-lavender-indigo text-xl;
+    @apply text-primary-color text-xl;
   }
 
   &.is-primary {
-    @apply bg-lavender-indigo text-black border-2 border-lavender-indigo;
+    @apply bg-primary-color text-black border-2 border-primary-color;
     &:hover, &:active, &:hover > *, &:active > * {
-      @apply bg-heliotrope;
+      @apply bg-secondary-color;
     }
     &:disabled, &[disabled] {
-      @apply bg-grey;
+      @apply bg-neutral-color;
     }
   }
 
   &.is-secondary {
-    @apply bg-eerie-black text-lavender-indigo border-2 border-lavender-indigo;
+    @apply bg-dark-color text-primary-color border-2 border-primary-color;
     &:hover, &:active, &:hover > *, &:active > * {
-      @apply text-heliotrope border-heliotrope;
+      @apply text-secondary-color border-secondary-color;
     }
     &:disabled, &[disabled] {
-      @apply text-grey border-grey;
+      @apply text-neutral-color border-neutral-color;
     }
   }
 
   &.is-tertiary {
-    @apply bg-eerie-black text-blue border-2 border-blue;
+    @apply bg-dark-color text-tertiary-color border-2 border-tertiary-color;
     .svg-inline--fa {
-      @apply text-blue;
+      @apply text-tertiary-color;
     }
     &:hover, &:active, &:hover > *, &:active > * {
-      @apply text-heliotrope border-heliotrope;
+      @apply text-secondary-color border-secondary-color;
     }
     &:disabled, &[disabled] {
-      @apply text-grey border-grey;
+      @apply text-neutral-color border-neutral-color;
     }
   }
 
   &.is-borderless {
-    @apply bg-eerie-black text-lavender-indigo border-2 border-eerie-black;
+    @apply bg-dark-color text-primary-color border-2 border-dark-color;
     &:hover, &:active, &:hover > *, &:active > * {
-      @apply text-heliotrope;
+      @apply text-secondary-color;
     }
     &:disabled, &[disabled] {
-      @apply text-grey;
+      @apply text-neutral-color;
     }
   }
  
   &.is-link {
-    @apply text-lavender-indigo underline py-2 px-0;
+    @apply text-primary-color underline py-2 px-0;
     &:hover, &:active, &:hover > *, &:active > * {
-      @apply text-heliotrope;
+      @apply text-secondary-color;
     }
     &:disabled, &[disabled] {
-      @apply text-grey;
+      @apply text-neutral-color;
     }
   }
 

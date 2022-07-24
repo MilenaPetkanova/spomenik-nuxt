@@ -1,6 +1,6 @@
 <template>
   <form class="login-form max-w-xs my-0 mx-auto" @submit.prevent="">
-    <!-- TODO: Try this approach for bibding data: https://codesandbox.io/s/218m3mloj?file=/src/components/SampleComponent.vue:148-155 -->
+    <!-- FIXME: Try this approach for binding data: https://codesandbox.io/s/218m3mloj?file=/src/components/SampleComponent.vue:148-155 -->
     <Field
       class="login-form__field w-full mb-4"
       id="email"
@@ -29,7 +29,6 @@
     <div v-if="error" class="login-form__errorborder-2 rounded-md border-red-400 p-4 mt-8">
       <Typography
         class="text-red-400"
-        :name="typographyEnum.Body"
         :text="error"
       ></Typography>
     </div>
@@ -50,12 +49,10 @@
 <script>
 import { mapGetters, mapActions } from "vuex"
 import { Validator } from 'simple-vue-validator'
-import { TypographyEnum } from '~/constants/enums'
 import authService from '~/services/auth'
 export default {
   data() {
     return {
-      typographyEnum: TypographyEnum,
 			email: null,
       password: null,
       error: null,

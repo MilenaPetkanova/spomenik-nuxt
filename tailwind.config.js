@@ -4,14 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'lavender-indigo': '#A368FF',
-        'heliotrope': '#CB68FF',
-        'blue': '#40B0D5',
-        'eerie-black': '#0E0E2C',
-        'grey': '#8C8CA1',
-        'ghost-white': '#FAFCFE',
-        'aquamarine': '#68FFC2',
-        'pastel-red': '#FF6868',
+        'primary-color': '#A368FF', // lavender-indigo
+        'secondary-color': '#CB68FF', // heliotrope
+        'tertiary-color': '#40B0D5', // blue
+        'dark-color': '#0E0E2C', // eerie-black
+        'neutral-color': '#8C8CA1', // grey
+        'light-color': '#FAFCFE', // ghost-white
+        'success-color': '#68FFC2', // aquamarine
+        'error-color': '#FF6868', // pastel-red
+        // dark - #19224C
+        // primary - #CD8AFC
       },
       fontFamily: {
         'montserrat': ['montserrat', 'sans-serif'],

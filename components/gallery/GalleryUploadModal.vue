@@ -1,7 +1,7 @@
 <template>
 	<Modal 
-		class="gallery-create-s1"
-		v-show="shownModal === modalsEnum.GalleryCreateStep1" 
+		class="gallery-create-modal"
+		v-show="shownModal === modalsEnum.GalleryUpload" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between">
@@ -11,13 +11,13 @@
 						icon="xmark"
 						@click.native="showModal(null); startNewRecord(null)">
 					</Button>
-					<Typography :name="typographyEnum.Bold" text="Нова снимка"></Typography>
+					<Typography name="bold" text="Нова снимка"></Typography>
 				</span>
 				<Button
 					v-if="newRecordSrc"
 					class="is-borderless is-icon"
 					icon="arrow-right-long"
-					@click.native="showModal(modalsEnum.GalleryCreateStep2)">
+					@click.native="showModal(modalsEnum.GalleryCreate)">
 				</Button>
 			</div>
 		</template>
@@ -33,7 +33,7 @@
               aria-label="upload image button"
               @change="selectFile"
             />
-            <Typography :name="typographyEnum.ButtonText" text="Изберете от устройството си"></Typography>
+            <Typography name="button-text" text="Изберете от устройството си"></Typography>
           </label>
 				</template>
 				<!-- TODO: Add loader -->
@@ -47,13 +47,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { TypographyEnum } from '~/constants/enums'
 export default {
-	data() {
-		return {
-			typographyEnum: TypographyEnum,
-		}
-	},
 	computed:{
     ...mapGetters('gallery', ['newRecordSrc']),
 		...mapGetters('modals', ['shownModal', 'modalsEnum']),

@@ -62,7 +62,6 @@
       <Typography
         class="gallery-card__caption"
         :text="post.caption"
-        :name="11"
       ></Typography>
 		</div>
 	</div>
@@ -82,7 +81,7 @@ export default {
     }
 	},
   methods: {
-    // TODO: white methods for the actions dropdown
+    // FIXME: write methods for the actions dropdown
   },
 }
 </script>

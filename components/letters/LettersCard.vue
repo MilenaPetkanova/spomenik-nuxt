@@ -11,7 +11,6 @@
       <Typography
         class="text-left"
         :text="letter.content"
-        :name="11"
       ></Typography>
 		</div>
 	</div>

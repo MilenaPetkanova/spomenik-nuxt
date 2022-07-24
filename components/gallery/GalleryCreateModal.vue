@@ -1,7 +1,7 @@
 <template>
 	<Modal 
-		class="gallery-create-s2"
-		v-show="shownModal === modalsEnum.GalleryCreateStep2" 
+		class="gallery-create-modal"
+		v-show="shownModal === modalsEnum.GalleryCreate" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
@@ -11,9 +11,10 @@
 						icon="xmark"
 						@click.native="showModal(null)">
 					</Button>
-          <!-- TODO: Remove typographyEnum from everywhere -->
-          <!-- TODO: Rename Typography to Text -->
-          <Typography :name="13" text="Нова снимка"></Typography>
+          <Typography
+            name="bold"
+            text="Нова снимка"
+          ></Typography>
 				</span>
 				<Button
 					class="is-borderless is-icon"
@@ -25,7 +26,6 @@
 		<template v-slot:body>
 			<div class="row flex p-4">
         <!-- TODO: Maybe add styles for modal header and body? -->
-        <!-- TODO: Rename colors -->
 				<img class="object-cover" :src="newRecordSrc" alt="image-preview" /> 
 				<div class="flex flex-col pl-4">
           <Select
@@ -95,7 +95,7 @@ export default {
 			await this.$galleryService.create(newRecord)
 			const gallery = await this.$galleryService.getAll();
 			this.initGallery(gallery)
-			this.showModal(this.modalsEnum.GalleryCreateStep3)
+			this.showModal(this.modalsEnum.GalleryDetails)
 		}
 	}
 } 

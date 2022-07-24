@@ -72,17 +72,17 @@ export default {
     mt-1 
     min-w-max 
     z-20 
-    bg-eerie-black 
+    bg-dark-color 
     border-2 
     rounded-md 
-    border-lavender-indigo;
+    border-primary-color;
 
     &-elements {
       @apply flex flex-col;
     }
 
     &-element {
-      @apply border-b-2 border-lavender-indigo;
+      @apply border-b-2 border-primary-color;
 
       &:last-child {
         @apply border-b-0;

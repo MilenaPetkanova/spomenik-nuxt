@@ -14,7 +14,7 @@
                 class="dropdown__menu-btn"
                 classes="is-borderless"
                 label="Добавете писмо"
-                @click.native="showModal(modalsEnum.LetterCreateStep1)">
+                @click.native="showModal(modalsEnum.LettersCreate)">
               </Button>
             </li>
             <li class="dropdown__menu-element">
@@ -22,7 +22,7 @@
                 class="dropdown__menu-btn"
                 classes="is-borderless"
                 label="Добавете снимка"
-                @click.native="showModal(modalsEnum.GalleryCreateStep1)">
+                @click.native="showModal(modalsEnum.GalleryUpload)">
               </Button>
             </li>
             <li class="dropdown__menu-element">
@@ -63,11 +63,11 @@
 			</div>
 		</div>
 
-		<GalleryCreateStep1 v-if="shownModal === modalsEnum.GalleryCreateStep1" />
-		<GalleryCreateStep2 v-if="shownModal === modalsEnum.GalleryCreateStep2" />
-		<GalleryCreateStep3 v-if="shownModal === modalsEnum.GalleryCreateStep3" />
-		<LettersCreateStep1 v-if="shownModal === modalsEnum.LetterCreateStep1" />
-		<LettersCreateStep2 v-if="shownModal === modalsEnum.LetterCreateStep2" />
+		<GalleryUploadModal v-if="shownModal === modalsEnum.GalleryUpload" />
+		<GalleryCreateModal v-if="shownModal === modalsEnum.GalleryCreate" />
+		<GalleryDetailsModal v-if="shownModal === modalsEnum.GalleryDetails" />
+		<LettersCreateModal v-if="shownModal === modalsEnum.LettersCreate" />
+		<LettersDetailsModal v-if="shownModal === modalsEnum.LettersDetails" />
 	</header>
 </template>
 

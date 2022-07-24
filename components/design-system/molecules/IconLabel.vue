@@ -7,7 +7,7 @@
     ></Icon>
     <Typography
       class="icon-label__label"
-      :name="15"
+      name="overline"
       :text="label"
     ></Typography>
   </div>
@@ -37,7 +37,7 @@ export default {
   }
 
   &__label {
-    @apply text-blue;
+    @apply text-tertiary-color;
   }
 }
 </style>

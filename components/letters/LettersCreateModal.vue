@@ -1,7 +1,7 @@
 <template>
 	<Modal 
-		class="letter-create-s1"
-		v-show="shownModal === modalsEnum.LetterCreateStep1" 
+		class="letter-create-modal"
+		v-show="shownModal === modalsEnum.LettersCreate" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
@@ -12,8 +12,8 @@
 						@click.native="showModal(null)">
 					</Button>
 					<Typography
-            class="text-blue"
-					  :name="typographyEnum.Bold"
+            class="text-tertiary-color"
+					  name="bold"
 					  text="Ново писмо"
 					></Typography>
 				</span>
@@ -25,7 +25,7 @@
 			</div>
 		</template>
 		<template v-slot:body>
-      <!-- TODO: being able to edit the date -->
+      <!-- FIXME: being able to edit the date -->
       <vue-editor v-model="content" :editorToolbar="editorToolbar" />
 		</template>
 	</Modal>
@@ -33,17 +33,15 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { TypographyEnum } from '~/constants/enums'
 export default {
   data() {
     return {
-    	typographyEnum: TypographyEnum,
-		content: '',
-		editorToolbar: [
-			["bold", "italic", "underline"],
-			[{ list: "ordered" }, { list: "bullet" }],
-			["image", "code-block"]
-		],
+      content: '',
+      editorToolbar: [
+        ["bold", "italic", "underline"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["image", "code-block"]
+      ],
     }
   },
   computed:{
@@ -69,7 +67,7 @@ export default {
         this.fetchLetters()
         newLetter.createdAt = this.$moment()
         this.setShownLetter(newLetter)
-        this.showModal(this.modalsEnum.LetterCreateStep2)
+        this.showModal(this.modalsEnum.LettersDetails)
       } catch (error) {
         console.error(error)
       }

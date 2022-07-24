@@ -47,18 +47,18 @@ export default {
 <style lang="scss" scoped>
 .nav {
   &__list {
-    @apply flex justify-between border-b-2 border-blue;
+    @apply flex justify-between border-b-2 border-tertiary-color;
   }
 
   &__btn {
     @apply rounded-b-none;
 
     &.is-tertiary {
-      @apply relative border-b-eerie-black;
+      @apply relative border-b-dark-color;
 
       &::after {
         content: " ";
-        @apply block absolute top-auto w-full h-1 bg-eerie-black;
+        @apply block absolute top-auto w-full h-1 bg-dark-color;
         bottom: -5px;
       }
     }

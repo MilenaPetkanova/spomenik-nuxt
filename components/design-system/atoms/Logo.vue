@@ -2,24 +2,23 @@
   <NuxtLink to="/" class="logo">
     <template v-if="type === typeEnum.Default">
       <Typography 
-        :name="typographyEnum.Header3" 
+        name="header-3" 
         :text="$constants('AppName')" 
-        class="text-lavender-indigo"
+        class="text-primary-color"
       ></Typography>
     </template>
-
     <template v-if="type === typeEnum.Authenticated">
       <Typography 
-        :name="typographyEnum.Subtitle" 
+        name="subtitle" 
         :text="$constants('AppName')" 
-        class="text-lavender-indigo"
+        class="text-primary-color"
       ></Typography>
       <Typography 
-        :name="typographyEnum.Overline" 
+        name="overline" 
         :text="`от ${fromName}`"
       ></Typography>
       <Typography 
-        :name="typographyEnum.Overline" 
+        name="overline" 
         :text="`до ${toName}`"
       ></Typography>
     </template>
@@ -27,7 +26,6 @@
 </template>
 
 <script>
-import { TypographyEnum } from '~/constants/enums'
 export default {
   props: {
     fromName: {
@@ -41,7 +39,6 @@ export default {
   },
   data() {
     return {
-      typographyEnum: TypographyEnum,
       typeEnum: {
         Default: 0,
         Authenticated: 1,
