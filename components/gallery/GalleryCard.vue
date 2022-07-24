@@ -39,13 +39,6 @@
                 label="Споделете">
               </Button>
             </li>
-            <li class="dropdown__menu-element">
-              <Button 
-                class="dropdown__menu-btn"
-                classes="is-borderless"
-                label="Копирайте линка">
-              </Button>
-            </li>
             <li
               class="dropdown__menu-element">
               <Button 
@@ -78,7 +71,7 @@ export default {
       type: Boolean,
       required: false,
       default: true,
-    }
+    },
 	},
   methods: {
     // FIXME: write methods for the actions dropdown

@@ -45,7 +45,10 @@
 			</div>
 		</template>
 		<template v-slot:body>
-			<GalleryCard :post="newRecord"></GalleryCard>
+			<GalleryCard
+			  :post="newRecord"
+        :hasActions="false"
+			></GalleryCard>
 		</template>
 	</Modal>
 </template>

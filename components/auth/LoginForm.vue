@@ -1,6 +1,5 @@
 <template>
   <form class="login-form max-w-xs my-0 mx-auto" @submit.prevent="">
-    <!-- FIXME: Try this approach for binding data: https://codesandbox.io/s/218m3mloj?file=/src/components/SampleComponent.vue:148-155 -->
     <Field
       class="login-form__field w-full mb-4"
       id="email"

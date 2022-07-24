@@ -45,7 +45,10 @@
 			</div>
 		</template>
 		<template v-slot:body>
-      <LettersCard :letter="shownLetter"></LettersCard>
+      <LettersCard 
+        :letter="shownLetter"
+        :hasActions="false"
+      ></LettersCard>
 		</template>
 	</Modal>
 </template>

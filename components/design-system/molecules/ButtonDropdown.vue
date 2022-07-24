@@ -10,9 +10,9 @@
       <menu
         class="dropdown__menu"
         v-show="isOpen">
-        <ul class="dropdown__menu-elements"> 
+        <ul class="dropdown__menu-elements" @click="toggleDropdown()"> 
+          <slot name="list"></slot> 
         </ul>
-        <slot name="list"></slot>
       </menu>
     </transition>
   </div>

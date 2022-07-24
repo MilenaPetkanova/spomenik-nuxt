@@ -68,6 +68,8 @@
 		<GalleryDetailsModal v-if="shownModal === modalsEnum.GalleryDetails" />
 		<LettersCreateModal v-if="shownModal === modalsEnum.LettersCreate" />
 		<LettersDetailsModal v-if="shownModal === modalsEnum.LettersDetails" />
+		<LettersUpdateModal v-if="shownModal === modalsEnum.LettersUpdate" />
+    <ShareModal v-if="shownModal === modalsEnum.Share" />
 	</header>
 </template>
 
