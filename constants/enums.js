@@ -1,9 +1,9 @@
 export const Modals = {
-  GalleryCreateStep1: 1 || '1',
-  GalleryCreateStep2: 2 || '2',
-  GalleryCreateStep3: 3 || '3',
-  LetterCreateStep1: 11 || '11',
-  LetterCreateStep2: 12 || '12',
+  GalleryUpload: 1 || '1',
+  GalleryCreate: 2 || '2',
+  GalleryDetails: 3 || '3',
+  LettersCreate: 11 || '11',
+  LettersDetails: 12 || '12',
   Share: 31 || '31',
 }
 

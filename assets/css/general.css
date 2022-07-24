@@ -10,7 +10,7 @@
     padding-right: 16px;
   }
 }
-a, button, h1, h2, h3, h4, h4, h5, h6, ul, li, svg, b, strong, small, span {
+a, button, h1, h2, h3, h4, h4, h5, h6, ul, li, svg, b, strong, small {
   @apply text-tertiary-color;
 }
 p, em, b {

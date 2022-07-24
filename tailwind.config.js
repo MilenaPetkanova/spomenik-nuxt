@@ -12,6 +12,8 @@ module.exports = {
         'light-color': '#FAFCFE', // ghost-white
         'success-color': '#68FFC2', // aquamarine
         'error-color': '#FF6868', // pastel-red
+        // dark - #19224C
+        // primary - #CD8AFC
       },
       fontFamily: {
         'montserrat': ['montserrat', 'sans-serif'],

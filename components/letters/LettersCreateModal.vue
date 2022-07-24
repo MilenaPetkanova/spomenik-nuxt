@@ -1,7 +1,7 @@
 <template>
 	<Modal 
-		class="letter-create-s1"
-		v-show="shownModal === modalsEnum.LetterCreateStep1" 
+		class="letter-create-modal"
+		v-show="shownModal === modalsEnum.LettersCreate" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
@@ -67,7 +67,7 @@ export default {
         this.fetchLetters()
         newLetter.createdAt = this.$moment()
         this.setShownLetter(newLetter)
-        this.showModal(this.modalsEnum.LetterCreateStep2)
+        this.showModal(this.modalsEnum.LettersDetails)
       } catch (error) {
         console.error(error)
       }

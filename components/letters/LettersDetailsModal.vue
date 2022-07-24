@@ -1,7 +1,7 @@
 <template>
 	<Modal 
-		class="gallery-create-s3"
-		v-show="shownModal === modalsEnum.GalleryCreateStep3" 
+		class="letter-create-modal"
+		v-show="shownModal === modalsEnum.LettersDetails" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
@@ -16,7 +16,7 @@
 						icon="share-nodes"
 						@click.native="showModal(modalsEnum.Share)">
 					</Button>
-          <ButtonDropdown icon="ellipsis-vertical">
+					<ButtonDropdown icon="ellipsis-vertical">
 						<template v-slot:list>
               <li class="dropdown__menu-element">
                 <Button 
@@ -45,7 +45,7 @@
 			</div>
 		</template>
 		<template v-slot:body>
-			<GalleryCard :post="newRecord"></GalleryCard>
+      <LettersCard :letter="shownLetter"></LettersCard>
 		</template>
 	</Modal>
 </template>
@@ -53,12 +53,12 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  computed: {
-    ...mapGetters("gallery", ["newRecord"]),
-    ...mapGetters("modals", ["shownModal", "modalsEnum"]),
-  },
-  methods: {
-    ...mapActions("modals", ["showModal"]),
-  },
-} 
+  computed:{
+		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+    ...mapGetters('letters', ['shownLetter']),
+	},
+	methods: {
+    ...mapActions('modals', ['showModal']),
+	},
+}
 </script>

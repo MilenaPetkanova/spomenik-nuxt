@@ -1,7 +1,7 @@
 <template>
 	<Modal 
-		class="gallery-create-s2"
-		v-show="shownModal === modalsEnum.GalleryCreateStep2" 
+		class="gallery-create-modal"
+		v-show="shownModal === modalsEnum.GalleryCreate" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
@@ -95,7 +95,7 @@ export default {
 			await this.$galleryService.create(newRecord)
 			const gallery = await this.$galleryService.getAll();
 			this.initGallery(gallery)
-			this.showModal(this.modalsEnum.GalleryCreateStep3)
+			this.showModal(this.modalsEnum.GalleryDetails)
 		}
 	}
 } 

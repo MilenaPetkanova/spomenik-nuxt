@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 .btn {
-  @apply block cursor-pointer rounded-md py-3 px-5 flex justify-center items-center;
+  @apply cursor-pointer rounded-md py-3 px-6 flex justify-center items-center;
 
   .svg-inline--fa {
     @apply text-primary-color text-xl;

@@ -1,7 +1,7 @@
 <template>
 	<Modal 
-		class="gallery-create-s1"
-		v-show="shownModal === modalsEnum.GalleryCreateStep1" 
+		class="gallery-create-modal"
+		v-show="shownModal === modalsEnum.GalleryUpload" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between">
@@ -17,7 +17,7 @@
 					v-if="newRecordSrc"
 					class="is-borderless is-icon"
 					icon="arrow-right-long"
-					@click.native="showModal(modalsEnum.GalleryCreateStep2)">
+					@click.native="showModal(modalsEnum.GalleryCreate)">
 				</Button>
 			</div>
 		</template>
