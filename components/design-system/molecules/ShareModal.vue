@@ -10,7 +10,11 @@
 					icon="arrow-left-long"
 					@click.native="showModal(null)">
 				</Button>
-				<h1>Споделяне</h1>
+        <Typography
+          class="text-tertiary-color"
+          name="bold"
+          text="Споделяне"
+        ></Typography>
 			</div>
 		</template>
 		<template v-slot:body>
@@ -18,7 +22,7 @@
 				<Button
 					classes="is-primary"
 					label="Копирайте линка"
-					@click.native="copyLinkToClipBoard">
+					@click.native="copyLinkToClipBoard()">
 				</Button>
 			</div>
 		</template>

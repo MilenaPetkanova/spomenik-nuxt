@@ -4,6 +4,7 @@ export const Modals = {
   GalleryDetails: 3 || '3',
   LettersCreate: 11 || '11',
   LettersDetails: 12 || '12',
+  LettersUpdate: 13 || '13',
   Share: 31 || '31',
 }
 
