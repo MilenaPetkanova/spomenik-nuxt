@@ -81,7 +81,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .field {
   &__label {
     @apply w-full block text-left text-tertiary-color mb-2;
