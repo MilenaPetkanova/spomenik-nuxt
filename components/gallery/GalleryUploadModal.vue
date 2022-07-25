@@ -1,7 +1,7 @@
 <template>
 	<Modal 
 		class="gallery-create-modal"
-		v-show="shownModal === modalsEnum.GalleryUpload" 
+		v-show="currentModal === modalsEnum.GalleryUpload" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between">
@@ -50,7 +50,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
 	computed:{
     ...mapGetters('gallery', ['newRecordSrc']),
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+		...mapGetters('modals', ['currentModal', 'modalsEnum']),
 	},
 	methods: {
 		...mapActions('gallery', ['startNewRecord']),

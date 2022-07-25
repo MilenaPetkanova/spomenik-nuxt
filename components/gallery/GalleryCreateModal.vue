@@ -1,7 +1,7 @@
 <template>
 	<Modal 
 		class="gallery-create-modal"
-		v-show="shownModal === modalsEnum.GalleryCreate" 
+		v-show="currentModal === modalsEnum.GalleryCreate" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
@@ -70,7 +70,7 @@ export default {
 	},
 	computed:{
     ...mapGetters('gallery', ['newRecordSrc']),
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+		...mapGetters('modals', ['currentModal', 'modalsEnum']),
     years() {
       const currentYear = this.$moment().year()
       const yearsCount = 100

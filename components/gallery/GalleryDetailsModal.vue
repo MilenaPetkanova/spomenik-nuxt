@@ -1,7 +1,7 @@
 <template>
 	<Modal 
 		class="gallery-create-modal"
-		v-show="shownModal === modalsEnum.GalleryDetails" 
+		v-show="currentModal === modalsEnum.GalleryDetails" 
 		@close-modal="showModal(null)">
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
@@ -58,7 +58,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   computed: {
     ...mapGetters("gallery", ["newRecord"]),
-    ...mapGetters("modals", ["shownModal", "modalsEnum"]),
+    ...mapGetters("modals", ["currentModal", "modalsEnum"]),
   },
   methods: {
     ...mapActions("modals", ["showModal"]),

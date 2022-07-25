@@ -30,7 +30,7 @@ export default {
     },
     computed: {
         ...mapGetters("gallery", ["gallery"]),
-        ...mapGetters("modals", ["shownModal", "modalsEnum"]),
+        ...mapGetters("modals", ["currentModal", "modalsEnum"]),
     },
     async mounted() {
         await this.fetchGallery();

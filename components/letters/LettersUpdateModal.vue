@@ -1,8 +1,8 @@
 <template>
 	<Modal 
 		class="letters-update-modal"
-		v-show="shownModal === modalsEnum.LettersUpdate" 
-		@close-modal="showModal(null)">
+		@close-modal="showModal(null)"
+  >
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
 				<span class="flex items-center">
@@ -45,7 +45,7 @@ export default {
     }
   },
   computed:{
-    ...mapGetters('modals', ['shownModal', 'modalsEnum']),
+    ...mapGetters('modals', ['currentModal', 'modalsEnum']),
     ...mapGetters('letters', ['shownLetter']),
   },
   mounted() {
@@ -58,7 +58,7 @@ export default {
       try {
         await this.$lettersService.update(this.letterValue.id, this.letterValue)
         this.updateLetter(this.letterValue);
-        this.setShownLetter(this.newLetter);
+        this.setShownLetter(this.letterValue);
         this.showModal(this.modalsEnum.LettersDetails);
       } catch (error) {
         console.error(error)

@@ -4,7 +4,7 @@
       class="letters-list__element" 
       v-for="letter in letters" :key="letter.id" 
     >
-      <LettersCard @click="openLetter(letter)"></LettersCard> 
+      <LettersCard :letter="letter"></LettersCard> 
     </li>
   </ul>
 </template>
@@ -14,13 +14,12 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   computed: {
     ...mapGetters('letters', ['letters']),
-    ...mapGetters('modals', ['shownModal', 'modalsEnum']),
   },
   async mounted() {
     await this.fetchLetters();
   },
   methods: {
-    ...mapActions('letters', ['initLetters', 'setShownLetter']),
+    ...mapActions('letters', ['initLetters']),
     async fetchLetters() {
       try {
         const letters = await this.$lettersService.getAll();
@@ -30,9 +29,6 @@ export default {
         console.error(error);
       }
     },
-    openLetter(letter) {
-      this.setShownLetter(letter);
-    }
   },
 }
 </script>

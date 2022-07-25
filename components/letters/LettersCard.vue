@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 export default {
 	props:{
 		letter: {
@@ -70,11 +70,11 @@ export default {
     }
 	},
   computed:{
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+		...mapGetters('modals', ['modalsEnum']),
 	},
   methods: {
     ...mapActions('modals', ['showModal']),
-    ...mapActions("letters", ["removeLetter", "setShownLetter"]),
+    ...mapActions('letters', ['removeLetter', 'setShownLetter']),
     openModal(modalsEnumArg) {
       this.setShownLetter(this.letter)
       this.showModal(modalsEnumArg)
@@ -90,7 +90,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 .letters-card {

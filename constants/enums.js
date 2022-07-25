@@ -1,4 +1,4 @@
-export const Modals = {
+export const ModalsEnum = {
   GalleryUpload: 1 || '1',
   GalleryCreate: 2 || '2',
   GalleryDetails: 3 || '3',

@@ -1,7 +1,6 @@
 <template>
 	<Modal 
 		class="letter-create-modal"
-		v-show="shownModal === modalsEnum.LettersCreate" 
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
@@ -49,7 +48,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('modals', ['shownModal', 'modalsEnum']),
+    ...mapGetters('modals', ['currentModal', 'modalsEnum']),
   },
   methods: {
     ...mapActions('modals', ['showModal']),
