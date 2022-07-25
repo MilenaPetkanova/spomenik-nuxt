@@ -25,10 +25,13 @@
 			</div>
 		</template>
 		<template v-slot:body>
-      <!-- FIXME: being able to edit the date -->
-      <client-only>
-				<vue-editor v-model="letterValue.content" :editorToolbar="editorToolbar" />
-			</client-only>
+      <DatePicker
+        v-model="letterValue.date"
+        class="mb-8"
+      ></DatePicker>
+      <Editor
+        v-model="letterValue.content"
+      ></Editor>
 		</template>
 	</Modal>
 </template>
@@ -38,11 +41,6 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      editorToolbar: [
-        ["bold", "italic", "underline"],
-        [{ list: "ordered" }, { list: "bullet" }],
-        ["image", "code-block"]
-      ],
       letterValue: {},
     }
   },
@@ -55,12 +53,13 @@ export default {
   },
 	methods: {
     ...mapActions('modals', ['showModal']),
-    ...mapActions('letters', ['updateLetter']),
+    ...mapActions('letters', ['updateLetter', 'setShownLetter']),
     async update() {
       try {
         await this.$lettersService.update(this.letterValue.id, this.letterValue)
         this.updateLetter(this.letterValue);
-        this.showModal(null)
+        this.setShownLetter(this.newLetter);
+        this.showModal(this.modalsEnum.LettersDetails);
       } catch (error) {
         console.error(error)
       }

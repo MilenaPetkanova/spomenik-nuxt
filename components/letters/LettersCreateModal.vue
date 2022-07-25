@@ -2,7 +2,8 @@
 	<Modal 
 		class="letter-create-modal"
 		v-show="shownModal === modalsEnum.LettersCreate" 
-		@close-modal="showModal(null)">
+		@close-modal="showModal(null)"
+  >
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
 				<span class="flex items-center">
@@ -25,53 +26,54 @@
 			</div>
 		</template>
 		<template v-slot:body>
-      <!-- FIXME: being able to edit the date -->
-      <vue-editor v-model="content" :editorToolbar="editorToolbar" />
+      <DatePicker
+        v-model="newLetter.date"
+        class="mb-8"
+      ></DatePicker>
+      <Editor
+        v-model="newLetter.content"
+      ></Editor>
 		</template>
 	</Modal>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 export default {
   data() {
     return {
-      content: '',
-      editorToolbar: [
-        ["bold", "italic", "underline"],
-        [{ list: "ordered" }, { list: "bullet" }],
-        ["image", "code-block"]
-      ],
-    }
+      newLetter: {
+        content: '',
+        date: new Date,
+      }
+    };
   },
-  computed:{
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
-	},
-	methods: {
+  computed: {
+    ...mapGetters('modals', ['shownModal', 'modalsEnum']),
+  },
+  methods: {
     ...mapActions('modals', ['showModal']),
     ...mapActions('letters', ['initLetters', 'setShownLetter']),
     async fetchLetters() {
       try {
-        const letters = await this.$lettersService.getAll()
-        this.initLetters(letters)
-      } catch (error) {
-        console.error(error)
+        const letters = await this.$lettersService.getAll();
+        this.initLetters(letters);
+      }
+      catch (error) {
+        console.error(error);
       }
     },
-		async createLetter() {
+    async createLetter() {
       try {
-				const newLetter = {
-					content: this.content,
-				}
-				await this.$lettersService.create(newLetter)
-        this.fetchLetters()
-        newLetter.createdAt = this.$moment()
-        this.setShownLetter(newLetter)
-        this.showModal(this.modalsEnum.LettersDetails)
-      } catch (error) {
-        console.error(error)
+        await this.$lettersService.create(this.newLetter);
+        this.fetchLetters();
+        this.setShownLetter(this.newLetter);
+        this.showModal(this.modalsEnum.LettersDetails);
+      }
+      catch (error) {
+        console.error(error);
       }
     }
-	}
+  },
 }
 </script>

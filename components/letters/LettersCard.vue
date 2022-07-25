@@ -2,10 +2,9 @@
 	<div class="letters-card">
     <div class="letters-card__heading">
       <IconLabel
-        v-if="letter.createdAt"
         class="letters-card__heading-label"
         icon="calendar-days"
-        :label="$moment(letter.createdAt).format('LL')"
+        :label="$moment(letter.date).format('LL')"
         @click.native="openModal(modalsEnum.LettersDetails)"
       ></IconLabel>
       <div
