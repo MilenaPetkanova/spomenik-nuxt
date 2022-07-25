@@ -29,14 +29,16 @@
               <Button 
                 class="dropdown__menu-btn"
                 classes="is-borderless"
-                label="Редактирайте">
+                label="Редактирайте"
+                @click.native="openModal(modalsEnum.GalleryUpdate)">
               </Button>
             </li>
             <li class="dropdown__menu-element">
               <Button 
                 class="dropdown__menu-btn"
                 classes="is-borderless"
-                label="Споделете">
+                label="Споделете"
+                @click.native="openModal(modalsEnum.Share)">
               </Button>
             </li>
             <li
@@ -44,7 +46,8 @@
               <Button 
                 class="dropdown__menu-btn"
                 classes="is-borderless"
-                label="Изтрийте">
+                label="Изтрийте"
+                @click.native="deleteItem()">
               </Button>
             </li>
           </template>
@@ -61,6 +64,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 export default {
 	props: {
 		post: {
@@ -73,8 +77,24 @@ export default {
       default: true,
     },
 	},
+  computed:{
+		...mapGetters('modals', ['modalsEnum']),
+	},
   methods: {
-    // FIXME: write methods for the actions dropdown
+    ...mapActions('modals', ['showModal']),
+    ...mapActions('gallery', ['removeItem', 'setShownItem']),
+    openModal(modalsEnumArg) {
+      this.setShownItem(this.post)
+      this.showModal(modalsEnumArg)
+    },
+    async deleteItem() {
+      try {
+        await this.$galleryService.delete(this.post.id);
+        this.removeItem(this.post.id);
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
 }
 </script>
@@ -85,7 +105,7 @@ export default {
     @apply flex justify-between;
 
     &-labels {
-      @apply flex;
+      @apply flex py-4;
     }
   }
 

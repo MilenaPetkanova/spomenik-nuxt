@@ -1,34 +1,53 @@
 export const state = () => ({
   gallery: [],
-  newRecordSrc: null,
-  newRecord: {},
+  shownItem: {},
+  newItem: {},
+  newItemSrc: null,
 })
   
 export const mutations = {
-  initGallery(state, gallery) {
+  initItems(state, gallery) {
     state.gallery = gallery
   },
-  startNewRecord(state, src) {
-    state.newRecordSrc = src
+  setShownItem(state, item) {
+    state.shownItem = item
   },
-  updateNewRecord(state, item) {
-    state.newRecord = item
-    state.newRecord.src = state.newRecordSrc
+  setNewItemSrc(state, src) {
+    state.newItemSrc = src
+  },
+  updateNewItem(state, item) {
+    state.newItem = item
+  },
+  updateItem(state, item) {
+    const outdatedItem = state.gallery.find(l => l.id === item.id)
+    Object.assign(outdatedItem, item)
+  },
+  removeItem(state, itemId) {
+    state.gallery = state.gallery.filter((item) => item.id !== itemId)
   },
 }
 
 export const actions = {
-  initGallery({ commit }, gallery) {
+  initItems({ commit }, gallery) {
     gallery.forEach(item => {
       item.thumb = item.src
     })
-    commit('initGallery', gallery);
+    commit('initItems', gallery);
   },
-  startNewRecord({ commit }, src) {
-    commit('startNewRecord', src);
+  setShownItem({ commit }, item) {
+    commit('setShownItem', item);
   },
-  updateNewRecord({ commit }, item) {
-    commit('updateNewRecord', item);
+  setNewItemSrc({ commit }, item) {
+    commit('setNewItemSrc', item);
+  },
+  updateNewItem({ commit }, item) {
+    commit('updateNewItem', item);
+  },
+  updateItem({ commit }, item) {
+    commit('updateItem', item);
+  },
+  removeItem({ commit }, itemId) {
+    commit('removeItem', itemId)
   },
 }
 
@@ -36,10 +55,13 @@ export const getters = {
   gallery: (state) => {
     return state.gallery
   },
-  newRecordSrc: (state) => {
-    return state.newRecordSrc
+  shownItem: (state) => {
+    return state.shownItem
   },
-  newRecord: (state) => {
-    return state.newRecord
+  newItem: (state) => {
+    return state.newItem
+  },
+  newItemSrc: (state) => {
+    return state.newItemSrc
   },
 }

@@ -19,8 +19,8 @@
 				</span>
 				<Button
 					class="is-borderless is-icon"
-					icon="arrow-right-long"
-					@click.native="update">
+					icon="check"
+					@click.native="update()">
 				</Button>
 			</div>
 		</template>
@@ -45,7 +45,7 @@ export default {
     }
   },
   computed:{
-    ...mapGetters('modals', ['currentModal', 'modalsEnum']),
+    ...mapGetters('modals', ['modalsEnum']),
     ...mapGetters('letters', ['shownLetter']),
   },
   mounted() {

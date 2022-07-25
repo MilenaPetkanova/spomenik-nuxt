@@ -1,72 +1,47 @@
 <template>
-	<section class="gallery-list py-2">
-		<ul v-if="gallery.length > 0" class="gallery-list__elements">
+	<section class="gallery-list">
+		<ul
+		  v-if="gallery.length > 0"
+		  class="gallery-list__elements"
+		>
 			<li 
-			  class="gallery-list__element mb-8"
-				v-for="(element, index) in gallery" :key="index">
+			  class="gallery-list__element"
+				v-for="element in gallery" :key="element.id"
+      >
         <GalleryCard :post="element"></GalleryCard>
 			</li>
 		</ul>
-		<client-only v-if="isLoaded && gallery.length > 0">
-			<light-box     
-				class="gallery-list__lightbox"   
-				ref="lightbox"
-				:media="gallery"         
-				:show-caption="true"
-				:show-light-box="false" 
-			/>
-		</client-only>
 	</section>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 export default {
-    data() {
-        return {
-            index: null,
-            isLoaded: false,
-        };
+  computed: {
+    ...mapGetters('gallery', ['gallery']),
+  },
+  async mounted() {
+    await this.fetchGallery();
+  },
+  methods: {
+    ...mapActions('gallery', ['initItems']),
+    async fetchGallery() {
+      try {
+        const gallery = await this.$galleryService.getAll();
+        this.initItems(gallery);
+      }
+      catch (error) {
+        console.error(error);
+      }
     },
-    computed: {
-        ...mapGetters("gallery", ["gallery"]),
-        ...mapGetters("modals", ["currentModal", "modalsEnum"]),
-    },
-    async mounted() {
-        await this.fetchGallery();
-    },
-    methods: {
-        ...mapActions("gallery", ["initGallery"]),
-        async fetchGallery() {
-            try {
-                const gallery = await this.$galleryService.getAll();
-                this.initGallery(gallery);
-                this.isLoaded = true;
-            }
-            catch (error) {
-                console.error(error);
-            }
-        },
-        openGallery(index) {
-            this.$refs.lightbox.showImage(index);
-        },
-    },
+  },
 }
 </script>
 
 <style scoped lang="scss">
-// .gallery-list {
-// 	&__elements {
-// 		display: flex;
-// 		flex-wrap: wrap;
-// 	}
-//   &__element {
-// 		flex: 25%;
-// 		max-width: 25%;
-// 		@media screen and (max-width: 768px) {
-// 			flex: 33.33%;
-// 			max-width: 33.33%;
-// 		}
-//   }
-// }
+.gallery-list {
+  &__element {
+    @apply mb-8;
+  }
+}
 </style>

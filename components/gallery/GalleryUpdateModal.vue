@@ -1,6 +1,6 @@
 <template>
 	<Modal 
-		class="gallery-create-modal"
+		class="gallery-update-modal"
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
@@ -14,26 +14,29 @@
           <Typography
             class="text-tertiary-color"
             name="bold"
-            text="Нова снимка"
+            text="Редактиране на снимка"
           ></Typography>
 				</span>
 				<Button
 					class="is-borderless is-icon"
 					icon="check"
-					@click.native="createGalleryRecord()">
+					@click.native="update()">
 				</Button>
 			</div>
 		</template>
 		<template v-slot:body>
 			<div class="row flex p-4">
-        <!-- TODO: Maybe add styles for modal header and body? -->
-				<img class="object-cover" :src="newItemSrc" alt="image-preview" /> 
+				<img
+				  :src="itemValue.src"
+				  class="object-cover"
+				  alt="image-preview"
+				/>
 				<div class="flex flex-col pl-4">
           <Select
             class="mb-4"
             label="Година"
             :options="years"
-            v-model="newItem.year"
+            v-model="itemValue.year"
           />
           <Field
             class="w-full mb-4"
@@ -41,7 +44,7 @@
             type="text"
             label="Локация"
             placeholder="Локация"
-            v-model.trim="newItem.location"
+            v-model.trim="itemValue.location"
           />
 				</div>
 			</div>
@@ -52,7 +55,7 @@
           type="textarea"
           label="Описание"
           placeholder="Описание"
-          v-model.trim="newItem.caption"
+          v-model.trim="itemValue.caption"
         />
 			</div>
 		</template>
@@ -60,21 +63,16 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 export default {
 	data() {
 		return {
-      newItem: {
-        year: null,
-				location: null,
-				caption: null,
-        src: null,
-			},
+      itemValue: {},
 		}
 	},
 	computed:{
-    ...mapGetters('gallery', ['newItemSrc']),
 		...mapGetters('modals', ['modalsEnum']),
+    ...mapGetters('gallery', ['shownItem']),
     years() {
       const currentYear = this.$moment().year()
       const yearsCount = 100
@@ -82,25 +80,23 @@ export default {
       return yearsBack.reverse()
     }
 	},
+  mounted() {
+    this.itemValue = Object.assign({}, this.shownItem)
+  },
 	methods: {
-		...mapActions('modals', ['showModal']),
-		...mapActions('gallery', ['initItems', 'updateNewItem', 'setShownItem']),
-		async createGalleryRecord() {
-      if(!this.newItem.year) {
-        this.newItem.year = this.years[0]
-			}
-      const cloudinaryResult = await this.$cloudinary.upload(this.newItemSrc, {
-        folder: 'spomenik',
-        uploadPreset: 'vyokv4nd',
-      })
-      this.newItem.src = cloudinaryResult.secure_url
-      this.updateNewItem(this.newItem)
-			await this.$galleryService.create(this.newItem)
-			const gallery = await this.$galleryService.getAll()
-			this.initItems(gallery)
-      this.setShownItem(this.newItem)
-			this.showModal(this.modalsEnum.GalleryDetails)
-		}
+    ...mapActions('modals', ['showModal']),
+    ...mapActions('gallery', ['updateItem', 'setShownItem']),
+    async update() {
+      try {
+        console.log('this.itemValue :>> ', this.itemValue);
+        await this.$galleryService.update(this.itemValue.id, this.itemValue)
+        this.updateItem(this.itemValue);
+        this.setShownItem(this.itemValue);
+        this.showModal(this.modalsEnum.GalleryDetails);
+      } catch (error) {
+        console.error(error)
+      }
+    },
 	}
 } 
 </script>

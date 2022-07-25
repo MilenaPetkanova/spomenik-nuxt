@@ -1,7 +1,6 @@
 <template>
 	<Modal 
 		class="share-modal"
-		v-show="currentModal === modalsEnum.Share" 
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
@@ -40,7 +39,7 @@ export default {
 		},
 	},
 	computed:{
-		...mapGetters('modals', ['currentModal', 'modalsEnum']),
+		...mapGetters('modals', ['modalsEnum']),
 	},
 	methods: {
 		...mapActions('modals', ['showModal']),
