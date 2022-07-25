@@ -30,6 +30,7 @@ export default {
     { src: '~/plugins/vuex-persistedstate', ssr: true },
     { src: '~/plugins/axios', ssr: true },
     { src: '~/plugins/constants', ssr: true },
+    { src: '~/plugins/vuejs-datepicker', ssr: false },
     // services
     { src: '~/services/gallery', ssr: true },
     { src: '~/services/letters', ssr: true },
