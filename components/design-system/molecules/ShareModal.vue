@@ -1,8 +1,8 @@
 <template>
 	<Modal 
 		class="share-modal"
-		v-show="shownModal === modalsEnum.Share" 
-		@close-modal="showModal(null)">
+		@close-modal="showModal(null)"
+  >
 		<template v-slot:header>
 			<div class="flex items-center px-1">
 				<Button
@@ -39,7 +39,7 @@ export default {
 		},
 	},
 	computed:{
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+		...mapGetters('modals', ['modalsEnum']),
 	},
 	methods: {
 		...mapActions('modals', ['showModal']),

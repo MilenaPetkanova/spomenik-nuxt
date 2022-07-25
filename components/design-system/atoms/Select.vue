@@ -33,7 +33,7 @@
       >
         <Typography 
           class="select__btn-text text-light-color"
-          :class="{ 'text-primary-color': option === selectedOption }"
+          :class="{ 'text-primary-color': option === value }"
           :text="option"
         ></Typography>
       </li>
@@ -44,6 +44,11 @@
 <script>
 export default {
   props: {
+    value: {
+      type: [String, Number],
+      required: false,
+      default: null,
+    },
     label: {
       type: String,
       required: false,
@@ -53,25 +58,20 @@ export default {
       type: Array,
       required: true,
     },
-    modelValue: {
-      type: String,
-      required: false,
-      default: null,
-    },
   },
   data() {
     return {
       isOpen: false,
-      selectedOption: this.modelValue ?? this.options[0],
     };
   },
-  mounted() {
-    this.$emit("input", this.selectedOption)
+  computed: {
+    selectedOption() {
+      return this.value ?? this.options[0]
+    }
   },
   methods: {
-    selectOption(option) {
-      this.selectedOption = option
-      this.$emit('input', this.selectedOption)
+    selectOption(newValue) {
+      this.$emit('input', newValue)
       this.isOpen = false 
     }
   },

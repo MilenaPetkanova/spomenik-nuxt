@@ -1,8 +1,8 @@
 <template>
 	<Modal 
 		class="gallery-create-modal"
-		v-show="shownModal === modalsEnum.GalleryDetails" 
-		@close-modal="showModal(null)">
+		@close-modal="showModal(null)"
+  >
 		<template v-slot:header>
 			<div class="flex items-center justify-between px-1">
 				<Button
@@ -17,36 +17,41 @@
 						@click.native="showModal(modalsEnum.Share)">
 					</Button>
           <ButtonDropdown icon="ellipsis-vertical">
-						<template v-slot:list>
-              <li class="dropdown__menu-element">
+            <template v-slot:list>
+              <li
+                class="dropdown__menu-element">
                 <Button 
                   class="dropdown__menu-btn"
                   classes="is-borderless"
-                  label="Споделете">
+                  label="Редактирайте"
+                  @click.native="openModal(modalsEnum.GalleryUpdate)">
                 </Button>
               </li>
               <li class="dropdown__menu-element">
                 <Button 
                   class="dropdown__menu-btn"
                   classes="is-borderless"
-                  label="Редактирайте">
+                  label="Споделете"
+                  @click.native="openModal(modalsEnum.Share)">
                 </Button>
               </li>
-              <li class="dropdown__menu-element">
+              <li
+                class="dropdown__menu-element">
                 <Button 
                   class="dropdown__menu-btn"
                   classes="is-borderless"
-                  label="Изтрийте">
+                  label="Изтрийте"
+                  @click.native="deleteItem()">
                 </Button>
               </li>
-						</template>
+            </template>
 					</ButtonDropdown>
 				</span>
 			</div>
 		</template>
 		<template v-slot:body>
 			<GalleryCard
-			  :post="newRecord"
+			  :post="shownItem"
         :hasActions="false"
 			></GalleryCard>
 		</template>
@@ -54,14 +59,27 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 export default {
   computed: {
-    ...mapGetters("gallery", ["newRecord"]),
-    ...mapGetters("modals", ["shownModal", "modalsEnum"]),
+    ...mapGetters('modals', ['modalsEnum']),
+    ...mapGetters('gallery', ['shownItem']),
   },
   methods: {
-    ...mapActions("modals", ["showModal"]),
+    ...mapActions('modals', ['showModal']),
+    ...mapActions('gallery', ['removeItem', 'setShownItem']),
+    openModal(modalsEnumArg) {
+      this.setShownItem(this.shownItem)
+      this.showModal(modalsEnumArg)
+    },
+    async deleteItem() {
+      try {
+        await this.$galleryService.delete(this.shownItem.id);
+        this.removeItem(this.shownItem.id);
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
 } 
 </script>

@@ -6,8 +6,14 @@ export default function ({ $axios }, inject) {
     async getAll() {
       return await $axios.$get(imagessUrl)
     },
-    async create(newRecord) {
-      await $axios.$post(imagessUrl, newRecord)
+    async create(newItem) {
+      await $axios.$post(imagessUrl, newItem)
+    },
+    async update(itemId, itemValue) {
+      await $axios.$put(`${imagessUrl}/${itemId}`, itemValue)
+    },
+    async delete(itemId) {
+      await $axios.$delete(`${imagessUrl}/${itemId}`)
     },
   }
 

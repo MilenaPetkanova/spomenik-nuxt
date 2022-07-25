@@ -14,7 +14,7 @@
                 class="dropdown__menu-btn"
                 classes="is-borderless"
                 label="Добавете писмо"
-                @click.native="showModal(modalsEnum.LettersCreate)">
+                @click.native="startCreatingLetter()">
               </Button>
             </li>
             <li class="dropdown__menu-element">
@@ -22,7 +22,7 @@
                 class="dropdown__menu-btn"
                 classes="is-borderless"
                 label="Добавете снимка"
-                @click.native="showModal(modalsEnum.GalleryUpload)">
+                @click.native="startCreatingImage()">
               </Button>
             </li>
             <li class="dropdown__menu-element">
@@ -55,39 +55,39 @@
                 class="dropdown__menu-btn"
                 classes="is-borderless"
                 label="Изход"
-                @click.native="logout(); $router.push('auth/login')">
+                @click.native="signout()">
               </Button>
             </li>
 					</template>
 				</ButtonDropdown>
 			</div>
 		</div>
-
-		<GalleryUploadModal v-if="shownModal === modalsEnum.GalleryUpload" />
-		<GalleryCreateModal v-if="shownModal === modalsEnum.GalleryCreate" />
-		<GalleryDetailsModal v-if="shownModal === modalsEnum.GalleryDetails" />
-		<LettersCreateModal v-if="shownModal === modalsEnum.LettersCreate" />
-		<LettersDetailsModal v-if="shownModal === modalsEnum.LettersDetails" />
-		<LettersUpdateModal v-if="shownModal === modalsEnum.LettersUpdate" />
-    <ShareModal v-if="shownModal === modalsEnum.Share" />
 	</header>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex"
 import { NamesStatic } from '~/constants/statics'
+import { ModalsEnum } from '~/constants/enums'
 export default {
   data() {
     return {
       namesStatic: NamesStatic,
     }
   },
-	computed:{
-		...mapGetters('modals', ['shownModal', 'modalsEnum']),
-	},
 	methods: {
 		...mapActions('auth', ['logout']),
 		...mapActions('modals', ['showModal']),
+    startCreatingLetter() {
+      this.showModal(ModalsEnum.LettersCreate)
+    },
+    startCreatingImage() {
+      this.showModal(ModalsEnum.GalleryUpload)
+    },
+    signout() {
+      this.logout()
+      this.$router.push('auth/login')
+    }
 	}
 }
 </script>
