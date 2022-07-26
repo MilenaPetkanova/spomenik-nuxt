@@ -1,7 +1,7 @@
 <template>
 	<div class="gallery-card">
 		<img 
-			class="gallery-card__img"
+			class="gallery-card__img u-img"
 			:src="post.src" 
 			alt="media" /> 
 		<div class="gallery-card__heading">
@@ -108,10 +108,5 @@ export default {
       @apply flex py-4;
     }
   }
-
-	&__img {
-		width: 100vw;
-		max-height: 100vh;
-	}
 }
 </style>

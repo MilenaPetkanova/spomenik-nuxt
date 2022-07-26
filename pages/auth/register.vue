@@ -1,17 +1,17 @@
 <template>
-  <div class="page is-register">
-    <div class="page__conatiner container py-8">
+  <main class="u-page is-register">
+    <div class="u-container">
       <RegisterForm />
     </div>
-  </div>
+  </main>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import Vue from 'vue'
-
 export default Vue.extend({
   name: 'RegisterPage',
-  layout: 'auth',
+  transition: 'page-transition',
+  layout: 'guest',
   head() {
     return {
       title: 'Register',

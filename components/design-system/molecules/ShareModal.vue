@@ -4,33 +4,35 @@
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
-			<div class="flex items-center px-1">
-				<Button
-					class="is-borderless is-icon"
-					icon="arrow-left-long"
-					@click.native="showModal(null)">
-				</Button>
+      <div class="modal__inner-wrapper">
+        <Button
+          class="is-borderless is-icon"
+          icon="xmark"
+          @click.native="showModal(null)">
+        </Button>
         <Typography
           class="text-tertiary-color"
           name="bold"
           text="Споделяне"
         ></Typography>
-			</div>
+      </div>
 		</template>
 		<template v-slot:body>
-			<div class="container flex flex-col items-center pt-12 pb-8">
-				<Button
-					classes="is-primary"
-					label="Копирайте линка"
-					@click.native="copyLinkToClipBoard()">
-				</Button>
-			</div>
+      <Notice
+        type="info"
+        label="Предстояща функсионалност"
+      ></Notice>
+      <!-- <Button
+        classes="is-primary"
+        label="Копирайте линка"
+        @click.native="copyLinkToClipBoard()">
+      </Button> -->
 		</template>
 	</Modal>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex'
 export default {
 	props: {
 		postUrl: {
@@ -50,12 +52,3 @@ export default {
 	},
 }
 </script>
-
-<style lang="scss" scoped>
-.gallery-post {
-	&__media {
-		width: 100vw;
-		max-height: 100vw;
-	}
-}
-</style>

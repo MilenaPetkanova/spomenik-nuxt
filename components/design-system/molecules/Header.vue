@@ -1,12 +1,15 @@
 <template>
 	<header class="header">
-		<div class="header__container container flex justify-between items-center py-4">
-			<Logo :fromName="namesStatic.from" :toName="namesStatic.to" />
-			<div class="header__actions flex">
+		<div class="header__container u-container">
+			<Logo
+			  :fromName="namesStatic.from"
+			  :toName="namesStatic.to"
+			/>
+			<div class="header__actions">
 				<ButtonDropdown 
           class="mr-2"
 					icon="plus"
-					btnClasses="is-secondary w-14 h-14"
+					btnClasses="is-secondary is-icon"
 				>
 					<template v-slot:list>
             <li class="dropdown__menu-element">
@@ -66,7 +69,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import { mapActions } from 'vuex'
 import { NamesStatic } from '~/constants/statics'
 import { ModalsEnum } from '~/constants/enums'
 export default {
@@ -91,3 +94,15 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss" scoped>
+.header {
+  &__container {
+    @apply flex justify-between items-center py-4; 
+  }
+
+  &__actions {
+    @apply flex;
+  }
+}
+</style>

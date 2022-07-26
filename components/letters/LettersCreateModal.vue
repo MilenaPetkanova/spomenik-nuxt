@@ -4,25 +4,24 @@
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
-			<div class="flex items-center justify-between px-1">
-				<span class="flex items-center">
-					<Button
-						class="is-borderless is-icon"
-						icon="xmark"
-						@click.native="showModal(null)">
-					</Button>
-					<Typography
-            class="text-tertiary-color"
-					  name="bold"
-					  text="Ново писмо"
-					></Typography>
-				</span>
-				<Button
-					class="is-borderless is-icon"
-					icon="arrow-right-long"
-					@click.native="createLetter">
-				</Button>
-			</div>
+      <div class="modal__inner-wrapper">
+        <Button
+          class="is-borderless is-icon"
+          icon="xmark"
+          @click.native="showModal(null)">
+        </Button>
+        <Typography
+          class="text-tertiary-color"
+          name="bold"
+          text="Ново писмо"
+        ></Typography>
+      </div>
+      <Button
+        v-if="newLetter.content.length > 0"
+        class="is-borderless is-icon"
+        icon="arrow-right-long"
+        @click.native="createLetter">
+      </Button>
 		</template>
 		<template v-slot:body>
       <DatePicker

@@ -1,14 +1,14 @@
 <template>
-  <div class="select relative">
+  <div class="select">
     <Typography
-      class="select__label w-full block text-left text-tertiary-color mb-2"
+      class="select__label"
       :class="{ 'text-primary-color': isOpen }"
       tag="label"
       name="overline"
       :text="label"
     ></Typography>
     <div 
-      class="select__btn relative cursor-pointer w-full text-left text-light-color bg-dark-color border-2 rounded-md border-tertiary-color py-3 px-5" 
+      class="select__btn" 
       :class="{ 'text-primary-color': isOpen }"
       @click="isOpen = !isOpen"
     >
@@ -17,17 +17,17 @@
         :text="selectedOption"
       ></Typography>
       <Icon 
-        class="select__btn-icon absolute top-4 right-4 left-auto text-tertiary-color"
+        class="select__btn-icon"
         :class="{ 'text-primary-color': isOpen }" 
         name="chevron-down"
       ></Icon>
     </div>
     <ul 
-      class="select__options absolute left-0 top-auto mt-1 w-full max-h-72 overflow-auto text-light-color bg-dark-color border-2 rounded-md border-primary-color" 
+      class="select__options" 
       v-show="isOpen"
     >
       <li 
-        class="select__option cursor-pointer text-left py-3 px-5" 
+        class="select__option" 
         v-for="(option, i) of options" :key="i" 
         @click="selectOption(option)"
       >
@@ -80,7 +80,62 @@ export default {
 
 <style lang="scss" scoped>
 .select {
+  @apply relative;
+
+  &__label {
+    @apply 
+    w-full 
+    block 
+    text-left 
+    text-tertiary-color 
+    mb-2;
+  }
+
+  &__btn {
+    @apply 
+    relative 
+    cursor-pointer 
+    w-full text-left 
+    text-light-color 
+    bg-dark-color 
+    border-2 
+    rounded-md 
+    border-tertiary-color 
+    py-3 
+    px-5;
+  
+    &-icon {
+      @apply 
+      absolute 
+      top-4 
+      right-4 
+      left-auto 
+      text-tertiary-color;
+    }
+  }
+
+  &__options {
+    @apply 
+    absolute 
+    left-0 
+    top-auto 
+    mt-1 w-full 
+    max-h-72 
+    overflow-auto 
+    text-light-color 
+    bg-dark-color 
+    border-2 
+    rounded-md 
+    border-primary-color;
+  }
+
   &__option {
+    @apply 
+    cursor-pointer 
+    text-left 
+    py-3 
+    px-5;
+
     &:hover {
       & > * {
         @apply text-primary-color;

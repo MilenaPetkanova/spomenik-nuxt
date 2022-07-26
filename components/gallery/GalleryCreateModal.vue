@@ -4,30 +4,31 @@
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
-			<div class="flex items-center justify-between px-1">
-				<span class="flex items-center">
-					<Button
-						class="is-borderless is-icon"
-						icon="xmark"
-						@click.native="showModal(null)">
-					</Button>
-          <Typography
-            class="text-tertiary-color"
-            name="bold"
-            text="Нова снимка"
-          ></Typography>
-				</span>
-				<Button
-					class="is-borderless is-icon"
-					icon="check"
-					@click.native="createGalleryRecord()">
-				</Button>
-			</div>
+      <div class="modal__inner-wrapper">
+        <Button
+          class="is-borderless is-icon"
+          icon="xmark"
+          @click.native="showModal(null)">
+        </Button>
+        <Typography
+          class="text-tertiary-color"
+          name="bold"
+          text="Нова снимка"
+        ></Typography>
+      </div>
+      <Button
+        class="is-borderless is-icon"
+        icon="check"
+        @click.native="createGalleryRecord()">
+      </Button>
 		</template>
 		<template v-slot:body>
-			<div class="row flex p-4">
-        <!-- TODO: Maybe add styles for modal header and body? -->
-				<img class="object-cover" :src="newItemSrc" alt="image-preview" /> 
+			<div class="modal__inner-wrapper mb-4">
+				<img
+				  :src="newItemSrc"
+				  class="u-img is-smalll"
+				  alt="image-preview"
+				/>
 				<div class="flex flex-col pl-4">
           <Select
             class="mb-4"
@@ -36,7 +37,7 @@
             v-model="newItem.year"
           />
           <Field
-            class="w-full mb-4"
+            class="w-full"
             id="location"
             type="text"
             label="Локация"
@@ -45,22 +46,20 @@
           />
 				</div>
 			</div>
-			<div class="row px-4">
-        <Field
-          class="w-full mb-4"
-          id="caption"
-          type="textarea"
-          label="Описание"
-          placeholder="Описание"
-          v-model.trim="newItem.caption"
-        />
-			</div>
+      <Field
+        class="w-full"
+        id="caption"
+        type="textarea"
+        label="Описание"
+        placeholder="Описание"
+        v-model.trim="newItem.caption"
+      />
 		</template>
 	</Modal>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex'
 export default {
 	data() {
 		return {
@@ -104,10 +103,3 @@ export default {
 	}
 } 
 </script>
-
-<style scoped>
-img {
-  width: 142px;
-  height: 168px;
-}
-</style>

@@ -33,7 +33,7 @@ export default {
   @apply flex items-center;
 
   &__icon {
-    @apply mr-3;
+    @apply mr-3 mb-1;
   }
 
   &__label {

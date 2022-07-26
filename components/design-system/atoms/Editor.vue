@@ -30,3 +30,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.ql-editor {
+  @apply overflow-auto;
+  max-height: 560px;
+}
+</style>

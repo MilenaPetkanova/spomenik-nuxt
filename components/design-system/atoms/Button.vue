@@ -43,7 +43,7 @@ export default {
 
   &.is-primary {
     @apply bg-primary-color text-black border-2 border-primary-color;
-    &:hover, &:active, &:hover > *, &:active > * {
+    &:hover, &:hover > * {
       @apply bg-secondary-color;
     }
     &:disabled, &[disabled] {
@@ -53,7 +53,7 @@ export default {
 
   &.is-secondary {
     @apply bg-dark-color text-primary-color border-2 border-primary-color;
-    &:hover, &:active, &:hover > *, &:active > * {
+    &:hover, &:hover > * {
       @apply text-secondary-color border-secondary-color;
     }
     &:disabled, &[disabled] {
@@ -66,7 +66,7 @@ export default {
     .svg-inline--fa {
       @apply text-tertiary-color;
     }
-    &:hover, &:active, &:hover > *, &:active > * {
+    &:hover, &:hover > * {
       @apply text-secondary-color border-secondary-color;
     }
     &:disabled, &[disabled] {
@@ -76,7 +76,7 @@ export default {
 
   &.is-borderless {
     @apply bg-dark-color text-primary-color border-2 border-dark-color;
-    &:hover, &:active, &:hover > *, &:active > * {
+    &:hover, &:hover > * {
       @apply text-secondary-color;
     }
     &:disabled, &[disabled] {
@@ -86,7 +86,7 @@ export default {
  
   &.is-link {
     @apply text-primary-color underline py-2 px-0;
-    &:hover, &:active, &:hover > *, &:active > * {
+    &:hover, &:hover > * {
       @apply text-secondary-color;
     }
     &:disabled, &[disabled] {
@@ -96,7 +96,6 @@ export default {
 
   &.is-icon {
     @apply w-12;
-    height: 52px;
   }
 }
 </style>
