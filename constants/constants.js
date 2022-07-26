@@ -1,1 +1,1 @@
-export const AppName = 'СПОМЕНИК';
+export const AppName = 'споменик';

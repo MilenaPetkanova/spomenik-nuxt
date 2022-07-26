@@ -4,25 +4,23 @@
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
-			<div class="flex items-center justify-between px-1">
-				<span class="flex items-center">
-					<Button
-						class="is-borderless is-icon"
-						icon="xmark"
-						@click.native="showModal(null)">
-					</Button>
-					<Typography
-            class="text-tertiary-color"
-					  name="bold"
-					  text="Редактиране на писмо"
-					></Typography>
-				</span>
-				<Button
-					class="is-borderless is-icon"
-					icon="check"
-					@click.native="update()">
-				</Button>
-			</div>
+      <div class="modal__inner-wrapper">
+        <Button
+          class="is-borderless is-icon"
+          icon="xmark"
+          @click.native="showModal(null)">
+        </Button>
+        <Typography
+          class="text-tertiary-color"
+          name="bold"
+          text="Редактиране на писмо"
+        ></Typography>
+      </div>
+      <Button
+        class="is-borderless is-icon"
+        icon="check"
+        @click.native="update()">
+      </Button>
 		</template>
 		<template v-slot:body>
       <DatePicker
@@ -37,7 +35,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data() {
     return {

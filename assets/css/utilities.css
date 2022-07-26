@@ -1,0 +1,38 @@
+/* u-layout */
+.u-layout {
+  @apply 
+  min-h-screen 
+  h-full 
+  bg-dark-color;
+}
+
+/* u-container */
+.u-container {
+  @apply px-4;
+}
+
+/* u-form  */
+.u-form__field {
+  @apply mb-4;
+}
+.u-form__btn {
+  @apply w-full my-8;
+}
+.u-form__more-actions {
+  @apply 
+  flex 
+  flex-col 
+  justify-end 
+  items-end 
+  py-8;
+}
+
+/* u-img */
+.u-img {
+  @apply w-screen max-h-screen;
+}
+.u-img.is-smalll {
+  @apply object-cover;
+  width: 142px;
+  height: 168px;
+}

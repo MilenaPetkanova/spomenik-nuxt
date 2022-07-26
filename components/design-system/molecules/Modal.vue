@@ -43,11 +43,25 @@ export default {
   }
 
   &__header {
-    @apply py-4;
+    @apply 
+    flex 
+    items-center 
+    justify-between 
+    py-4
+    pr-1;
+
   }
 
   &__body {
-    @apply px-4 pb-8;
+    @apply 
+    flex 
+    flex-col 
+    px-4 
+    py-4;
+  }
+
+  &__inner-wrapper {
+    @apply flex items-center;
   }
 }
 </style>

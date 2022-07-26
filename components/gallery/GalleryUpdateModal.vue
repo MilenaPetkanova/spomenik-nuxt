@@ -4,31 +4,29 @@
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
-			<div class="flex items-center justify-between px-1">
-				<span class="flex items-center">
-					<Button
-						class="is-borderless is-icon"
-						icon="xmark"
-						@click.native="showModal(null)">
-					</Button>
-          <Typography
-            class="text-tertiary-color"
-            name="bold"
-            text="Редактиране на снимка"
-          ></Typography>
-				</span>
-				<Button
-					class="is-borderless is-icon"
-					icon="check"
-					@click.native="update()">
-				</Button>
-			</div>
+      <div class="modal__inner-wrapper">
+        <Button
+          class="is-borderless is-icon"
+          icon="xmark"
+          @click.native="showModal(null)">
+        </Button>
+        <Typography
+          class="text-tertiary-color"
+          name="bold"
+          text="Редактиране на снимка"
+        ></Typography>
+      </div>
+      <Button
+        class="is-borderless is-icon"
+        icon="check"
+        @click.native="update()">
+      </Button>
 		</template>
 		<template v-slot:body>
-			<div class="row flex p-4">
+			<div class="modal__inner-wrapper mb-4">
 				<img
 				  :src="itemValue.src"
-				  class="object-cover"
+				  class="u-img is-smalll"
 				  alt="image-preview"
 				/>
 				<div class="flex flex-col pl-4">
@@ -39,7 +37,7 @@
             v-model="itemValue.year"
           />
           <Field
-            class="w-full mb-4"
+            class="w-full"
             id="location"
             type="text"
             label="Локация"
@@ -48,16 +46,14 @@
           />
 				</div>
 			</div>
-			<div class="row px-4">
-        <Field
-          class="w-full mb-4"
-          id="caption"
-          type="textarea"
-          label="Описание"
-          placeholder="Описание"
-          v-model.trim="itemValue.caption"
-        />
-			</div>
+      <Field
+        class="w-full"
+        id="caption"
+        type="textarea"
+        label="Описание"
+        placeholder="Описание"
+        v-model.trim="itemValue.caption"
+      />
 		</template>
 	</Modal>
 </template>
@@ -100,10 +96,3 @@ export default {
 	}
 } 
 </script>
-
-<style scoped>
-img {
-  width: 142px;
-  height: 168px;
-}
-</style>

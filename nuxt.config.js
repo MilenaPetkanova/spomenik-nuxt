@@ -20,18 +20,17 @@ export default {
   css: [
     '~/assets/css/fonts.css',
     '~/assets/css/general.css',
+    '~/assets/css/utilities.css',
     '~/assets/css/transitions.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/image-lightbox', ssr: false },
-    { src: '~/plugins/simple-vue-validator', ssr: true },
-    { src: '~/plugins/vuex-persistedstate', ssr: true },
     { src: '~/plugins/axios', ssr: true },
-    { src: '~/plugins/constants', ssr: true },
+    { src: '~/plugins/vuex-persistedstate', ssr: true },
+    { src: '~/plugins/simple-vue-validator', ssr: true },
     { src: '~/plugins/vuejs-datepicker', ssr: false },
-    // services
+    { src: '~/plugins/constants', ssr: true },
     { src: '~/services/gallery', ssr: true },
     { src: '~/services/letters', ssr: true },
   ],

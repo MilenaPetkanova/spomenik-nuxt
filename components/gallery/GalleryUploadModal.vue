@@ -4,49 +4,53 @@
 		@close-modal="showModal(null)"
   >
 		<template v-slot:header>
-			<div class="flex items-center justify-between">
-				<span class="flex items-center">
-					<Button
-						class="is-borderless is-icon"
-						icon="xmark"
-						@click.native="showModal(null); setNewItemSrc(null)">
-					</Button>
-					<Typography
-					  name="bold"
-					  text="Нова снимка"
-					></Typography>
-				</span>
-				<Button
-					v-if="newItemSrc"
-					class="is-borderless is-icon"
-					icon="arrow-right-long"
-					@click.native="showModal(modalsEnum.GalleryCreate)">
-				</Button>
-			</div>
+      <div class="modal__inner-wrapper">
+        <Button
+          class="is-borderless is-icon"
+          icon="xmark"
+          @click.native="showModal(null); setNewItemSrc(null)">
+        </Button>
+        <Typography
+          class="text-tertiary-color"
+          name="bold"
+          text="Нова снимка"
+        ></Typography>
+      </div>
+      <Button
+        v-if="newItemSrc"
+        class="is-borderless is-icon"
+        icon="arrow-right-long"
+        @click.native="showModal(modalsEnum.GalleryCreate)">
+      </Button>
 		</template>
 		<template v-slot:body>
-			<div class="h-full flex flex-col items-center">
-				<template v-if="!newItemSrc">
-          <Icon name="file-image" size="4x" class="mt-12 mb-8"></Icon>
-          <label class="btn is-primary">
-            <input
-              class="hidden"
-              type="file"
-              accept=".jpeg,.jpg,.png,image/jpeg,image/png"
-              aria-label="upload image button"
-              @change="selectFile"
-            />
-            <Typography
-              name="button-text"
-              text="Изберете от устройството си"
-            ></Typography>
-          </label>
-				</template>
-				<!-- TODO: Add loader -->
-				<template v-else>
-					<img :src="newItemSrc" alt="image-preview" /> 
-				</template>
-			</div>
+      <template v-if="newItemSrc">
+        <img
+          class="u-img"
+          :src="newItemSrc"
+          alt="image-preview"
+        />
+      </template>
+      <template v-else>
+        <Icon
+          class="mt-12 mb-8"
+          name="file-image"
+          size="4x"
+        ></Icon>
+        <label class="btn is-primary w-full">
+          <input
+            class="hidden"
+            type="file"
+            accept=".jpeg,.jpg,.png,image/jpeg,image/png"
+            aria-label="upload image button"
+            @change="selectFile"
+          />
+          <Typography
+            name="button-text"
+            text="Изберете от устройството си"
+          ></Typography>
+        </label>
+      </template>
 		</template>
 	</Modal>
 </template>
@@ -77,13 +81,3 @@ export default {
 	}
 } 
 </script>
-
-<style scoped>
-img {
-	width: 100vw;
-	max-height: 100vh;
-}
-.btn.is-primary {
-	@apply w-full;
-}
-</style>

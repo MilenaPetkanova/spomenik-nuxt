@@ -1,9 +1,9 @@
 <template>
-  <div class="page is-index">
-  </div>
+  <main class="u-page is-index is-redirect">
+  </main>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({
@@ -12,7 +12,7 @@ export default Vue.extend({
   transition: 'page-transition',
   head() {
     return {
-      title: 'Homepage Title',
+      title: 'Index',
     };
   },
 })

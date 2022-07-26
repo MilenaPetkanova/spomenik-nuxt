@@ -1,13 +1,22 @@
 <template>
-  <NuxtLink to="/" class="logo">
-    <template v-if="type === typeEnum.Default">
+  <NuxtLink
+    class="logo"
+    to="/"
+  >
+    <div
+      v-if="type === typeEnum.Guest"
+      class="logo__container is-guest"
+    >
       <Typography 
         name="header-3" 
         :text="$constants('AppName')" 
         class="text-primary-color"
       ></Typography>
-    </template>
-    <template v-if="type === typeEnum.Authenticated">
+    </div>
+    <div
+      v-if="type === typeEnum.Authenticated"
+      class="logo__container is-authenticated"
+    >
       <Typography 
         name="subtitle" 
         :text="$constants('AppName')" 
@@ -21,7 +30,7 @@
         name="overline" 
         :text="`до ${toName}`"
       ></Typography>
-    </template>
+    </div>
   </NuxtLink>
 </template>
 
@@ -30,17 +39,19 @@ export default {
   props: {
     fromName: {
       type: String,
+      required: false,
       default: null,
     },
     toName: {
       type: String,
+      required: false,
       default: null,
     },
   },
   data() {
     return {
       typeEnum: {
-        Default: 0,
+        Guest: 0,
         Authenticated: 1,
       },
     };
@@ -48,10 +59,26 @@ export default {
   computed: {
     type() {
       if (!this.fromName || !this.toName) {
-        return this.typeEnum.Default;
+        return this.typeEnum.Guest;
       }
       return this.typeEnum.Authenticated;
     }
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.logo {
+  &__container {
+    &.is-guest {
+      @apply 
+      flex 
+      justify-center 
+      mb-10;
+    }
+    &.is-authenticated {
+      @apply mb-2;
+    }
+  }
+}
+</style>
