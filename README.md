@@ -11,12 +11,16 @@
 
 - vuejs
 - nuxtjs
-- vuex
+
+## Connected repos
 
 - backend -> [spomenik-node](https://github.com/MilenaPetkanova/spomenik-node).
+- old repo where fe and be were combined -> [spomenik](https://github.com/MilenaPetkanova/spomenik).
 
 
 ## Dependencies
+
+- vuex
 - axios
 - fortawesome
 - toast
@@ -105,7 +109,7 @@ More information about the usage of this directory in [the documentation](https:
 
 ## Backlog
 
-- [x] ui/design
+- [x] ui/design-system
 - [ ] ux/user-roles
 - [ ] ux/post-view-and-share
 - [x] devops/deployment
@@ -116,6 +120,7 @@ More information about the usage of this directory in [the documentation](https:
 - [ ] feature/refresh-token
 - [ ] feature/forgotten-password
 - [ ] feature/passport-login-with-gmail
+- [x] feature/color-themes
 - [ ] enhancement/init-tests
 - [ ] enhancement/separate-controllers-in-be
 - [ ] enhancement/sequelize-everywhere-in-be
@@ -123,6 +128,7 @@ More information about the usage of this directory in [the documentation](https:
 - [ ] enhancement/constant-for-routes
 - [ ] enhancement/loaders
 - [ ] enhancement/alerts
+- [x] enhancement/fonts
 - [x] enhancement/dropdown-close-directive
 
 ## License
