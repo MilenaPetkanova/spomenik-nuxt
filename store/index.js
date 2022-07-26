@@ -8,8 +8,7 @@ export const actions = {
 
     if (state.auth.accessToken) {
       try {
-        // TODO:
-        // await dispatch('auth/refresh')
+        // TODO: await dispatch('auth/refresh')
       } catch (e) {
         await dispatch('auth/logout')
       }

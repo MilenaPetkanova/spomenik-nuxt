@@ -1,5 +1,44 @@
 # spomenik-nuxt
 
+## Project brief
+
+- Working title: Spomenik
+- Solving the following problems: Scattering our chilren's photos and video though devices and social medias. Forgetting great stories we want to share with them in the future.
+- Purpose: Store and share memories
+- Target: Parents mostly 
+
+## Tech stask
+
+- vuejs
+- nuxtjs
+
+## Connected repos
+
+- backend -> [spomenik-node](https://github.com/MilenaPetkanova/spomenik-node).
+- old repo where fe and be were combined -> [spomenik](https://github.com/MilenaPetkanova/spomenik).
+
+
+## Dependencies
+
+- vuex
+- axios
+- fortawesome
+- toast
+- cookie-universal-nuxt
+- vuex-persistedstate
+- simple-vue-validator
+- vue2-editor
+- vuejs-datepicker
+
+## Third-party:
+
+- cloudinary
+
+## Conventions
+
+- Use BEM-ish for class names
+- Use TailwindCSS for styles (as much as possible)
+
 ## Build Setup
 
 ```bash
@@ -67,3 +106,30 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+## Backlog
+
+- [x] ui/design-system
+- [ ] ux/user-roles
+- [ ] ux/post-view-and-share
+- [x] devops/deployment
+- [x] devops/ci-cd
+- [ ] feature/images-set
+- [ ] feature/user-roles
+- [ ] feature/post-view-and-share
+- [ ] feature/refresh-token
+- [ ] feature/forgotten-password
+- [ ] feature/passport-login-with-gmail
+- [x] feature/color-themes
+- [ ] enhancement/init-tests
+- [ ] enhancement/separate-controllers-in-be
+- [ ] enhancement/sequelize-everywhere-in-be
+- [ ] enhancement/typescript-in-fe
+- [ ] enhancement/constant-for-routes
+- [ ] enhancement/loaders
+- [ ] enhancement/alerts
+- [x] enhancement/fonts
+- [x] enhancement/dropdown-close-directive
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

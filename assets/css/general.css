@@ -1,14 +1,10 @@
-.layout {
-  min-height: 100vh;
-  height: 100%;
+a, button, h1, h2, h3, h4, h4, h5, h6, ul, li, svg, b, strong, small {
+  @apply 
+  font-montserrat 
+  text-tertiary-color;
 }
-.container {
-  margin: 0 auto;
-  @media (max-width: 768px) {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-a, button, h1, h2, h3, h4, h4, h6, p, ul, li, svg {
-  @apply text-blue-custom-400;
+p, em, b {
+  @apply 
+  font-montserrat 
+  text-light-color;
 }

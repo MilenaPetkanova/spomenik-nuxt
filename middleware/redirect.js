@@ -1,3 +1,3 @@
 export default function ({ store, redirect }) {
-  return redirect('/gallery')
+  return redirect('/letters')
 }

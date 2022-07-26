@@ -1,17 +1,20 @@
 <template>
-  <div class="page is-login">
-    <div class="page__conatiner container py-8">
-      <p class="text-red-400 text-center">Server error</p>
+  <main class="u-page is-error-500">
+    <div class="u-container">
+      <Notice 
+        class="flex justify-center"
+        label="Server error"
+      ></Notice>
     </div>
-  </div>
+  </main>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'ErrorPage',
-  layout: 'auth',
+  layout: 'guest',
   head() {
     return {
       title: 'Error 500',

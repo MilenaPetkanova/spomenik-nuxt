@@ -1,12 +1,12 @@
-import Modals from '../constants/enums';
+import { ModalsEnum } from '../constants/enums';
 
 export const state = () => ({
-  shownModal: null,
+  currentModal: null,
 })
   
 export const mutations = {
   showModal(state, modal) {
-    state.shownModal = modal
+    state.currentModal = modal
   },
 }
 
@@ -17,10 +17,10 @@ export const actions = {
 }
 
 export const getters = {
-  shownModal: (state) => {
-    return state.shownModal
+  currentModal: (state) => {
+    return state.currentModal
   },
   modalsEnum() {
-    return Modals
+    return ModalsEnum
   },
 }

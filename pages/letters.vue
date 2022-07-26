@@ -1,8 +1,6 @@
 <template>
-  <div class="page is-letters">
-    <div class="page__conatiner container py-8">
-      <Nav navClasses="mb-8" />
-      <LettersCreate />
+  <div class="u-page is-letters">
+    <div class="u-container">
       <LettersList />
     </div>
   </div>

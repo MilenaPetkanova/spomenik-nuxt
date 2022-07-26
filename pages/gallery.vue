@@ -1,10 +1,9 @@
 <template>
-  <div class="page is-gallery">
-    <div class="page__conatiner container py-8">
-      <Nav navClasses="mb-6" />     
+  <main class="u-page is-gallery">
+    <div class="u-container">
       <GalleryList />
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

@@ -1,17 +1,17 @@
 <template>
-  <div class="page is-login">
-    <div class="page__conatiner container py-8">
+  <main class="u-page is-login">
+    <div class="u-container">
       <LoginForm />
     </div>
-  </div>
+  </main>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import Vue from 'vue'
-
 export default Vue.extend({
   name: 'LoginPage',
-  layout: 'auth',
+  transition: 'page-transition',
+  layout: 'guest',
   head() {
     return {
       title: 'Login',

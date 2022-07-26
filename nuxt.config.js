@@ -20,17 +20,17 @@ export default {
   css: [
     '~/assets/css/fonts.css',
     '~/assets/css/general.css',
+    '~/assets/css/utilities.css',
     '~/assets/css/transitions.css',
-    '~/assets/css/fields.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/image-lightbox', ssr: false },
-    { src: '~/plugins/simple-vue-validator', ssr: true },
-    { src: '~/plugins/vuex-persistedstate', ssr: true },
     { src: '~/plugins/axios', ssr: true },
-    // services
+    { src: '~/plugins/vuex-persistedstate', ssr: true },
+    { src: '~/plugins/simple-vue-validator', ssr: true },
+    { src: '~/plugins/vuejs-datepicker', ssr: false },
+    { src: '~/plugins/constants', ssr: true },
     { src: '~/services/gallery', ssr: true },
     { src: '~/services/letters', ssr: true },
   ],
@@ -38,7 +38,9 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
     dirs: [
-      '~/components/shared',
+      '~/components/design-system',
+      '~/components/design-system/atoms',
+      '~/components/design-system/molecules',
       '~/components/auth',
       '~/components/letters',
       '~/components/gallery',
@@ -71,7 +73,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.NODE_ENV !== 'production' ?  'http://localhost:8000' : 'https://spomenik-api.milenapetkanova.com',
+    baseURL: process.env.NODE_ENV !== 'production' ?  process.env.SPOMENIK_API_URL_LOCAL : process.env.SPOMENIK_API_URL_PROD,
   },
 
   moment: {

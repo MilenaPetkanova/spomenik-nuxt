@@ -1,6 +1,8 @@
 <template>
-  <main class="layout is-default font-montserrat bg-black-custom-600">
+  <div class="u-layout is-default">
     <Header />
+    <Nav />     
+    <ModalsWrapper />
     <Nuxt />
-  </main>
+  </div>
 </template>
