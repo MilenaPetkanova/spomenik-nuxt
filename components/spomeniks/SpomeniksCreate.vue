@@ -37,9 +37,6 @@ export default {
       return Validator.value(value).required()
     },
   },
-  computed: {
-    ...mapGetters('auth', ['user']),
-  },
   methods: {
     ...mapActions('spomeniks', ['initSpomeniks', 'setShownSpomenik']),
     async fetchSpomeniks() {
@@ -55,8 +52,9 @@ export default {
       try {
         this.error = null
 
-        console.log('user :>> ', this.user);
-return
+        // console.log('user :>> ', this.user);
+        return
+        
         if(!this.name) {
           this.error = 'Name is a required field'
           return

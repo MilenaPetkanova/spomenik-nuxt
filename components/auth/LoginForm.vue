@@ -44,9 +44,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import { Validator } from 'simple-vue-validator'
-import authService from '~/services/auth'
 export default {
   data() {
     return {
@@ -64,16 +62,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions('auth', ['setTokens', 'setUser']),
     async login() {
       try {
-        const response = await authService.login({
-          email: this.email,
-          password: this.password,
+        const response = await this.$auth.loginWith("local", {
+          data: { 
+            email: this.email, 
+            password: this.password 
+          },
         });
-        this.setTokens(response.data.tokens);
-        this.setUser(response.data.user);
-        this.$router.push('/gallery');
       }
       catch (error) {
         console.error(error);

@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import { Validator } from 'simple-vue-validator'
 import authService from '~/services/auth'
 export default {
@@ -78,7 +77,6 @@ export default {
     }
   },
 	methods: {
-    ...mapActions('auth', ['setTokens', 'setUser']),
     async register() {
       try {
         const response = await authService.register({
@@ -86,8 +84,6 @@ export default {
           password: this.password, 
           name: this.name, 
         })
-        this.setTokens(response.data.tokens)
-        this.setUser(response.data.user)
         this.$router.push('/gallery')
       } catch (error) {
         console.error(error);        
