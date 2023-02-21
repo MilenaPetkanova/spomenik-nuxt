@@ -24,7 +24,7 @@
 - axios
 - fortawesome
 - toast
-- cookie-universal-nuxt
+- nuxt-auth
 - vuex-persistedstate
 - simple-vue-validator
 - vue2-editor

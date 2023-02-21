@@ -27,7 +27,6 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/axios', ssr: true },
-    { src: '~/plugins/vuex-persistedstate', ssr: true },
     { src: '~/plugins/simple-vue-validator', ssr: true },
     { src: '~/plugins/vuejs-datepicker', ssr: false },
     { src: '~/plugins/constants', ssr: true },
@@ -63,10 +62,10 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     "vue2-editor/nuxt",
     '@nuxtjs/cloudinary',
     '@nuxtjs/toast',
-    'cookie-universal-nuxt',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -75,6 +74,37 @@ export default {
 
   axios: {
     baseURL: process.env.NODE_ENV !== 'production' ?  process.env.SPOMENIK_API_URL_LOCAL : process.env.SPOMENIK_API_URL_PROD,
+  },
+
+   auth: {
+    strategies: {
+      local: {
+        token: {
+          property: "token",
+          global: true,
+          required: true,
+          type: "Bearer"
+        },
+        user: {
+          property: "user",
+          autoFetch: true
+        },
+        endpoints: {
+          login: { url: "/login", method: "post" },
+          logout: { url: "/logout", method: "post" },
+          user: { url: "/user", method: "get", propertyName: false }
+        }
+      }
+    },
+    redirect: {
+      login: "/auth/login",
+      logout: "/auth/login",
+      home: "/letters"
+    }
+  },
+  
+  router: {
+    middleware: ['auth'],
   },
 
   moment: {
@@ -106,10 +136,6 @@ export default {
         }
       }
     ] 
-  },
-
-  router: {
-    middleware: ['auth']
   },
  
 }

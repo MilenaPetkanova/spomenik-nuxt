@@ -79,7 +79,6 @@ export default {
     }
   },
 	methods: {
-		...mapActions('auth', ['logout']),
 		...mapActions('modals', ['showModal']),
     startCreatingLetter() {
       this.showModal(ModalsEnum.LettersCreate)
@@ -87,9 +86,8 @@ export default {
     startCreatingImage() {
       this.showModal(ModalsEnum.GalleryUpload)
     },
-    signout() {
-      this.logout()
-      this.$router.push('auth/login')
+    async signout() {
+      await this.$auth.logout();
     }
 	}
 }
