@@ -12,11 +12,11 @@
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
+    "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/cloudinary": "^1.0.3",
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/toast": "^3.3.1",
-    "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
     "simple-vue-validator": "^0.16.0",
