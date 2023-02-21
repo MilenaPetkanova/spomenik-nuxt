@@ -1,8 +1,11 @@
+@import '@fortawesome/fontawesome-svg-core/styles.css';
+
 a, button, h1, h2, h3, h4, h4, h5, h6, ul, li, svg, b, strong, small {
   @apply 
   font-montserrat 
   text-tertiary-color;
 }
+
 p, em, b {
   @apply 
   font-montserrat 

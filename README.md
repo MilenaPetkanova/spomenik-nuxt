@@ -107,20 +107,27 @@ This directory contains your Vuex store files. Creating a file in this directory
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
 
+## Bugs
+- [ ] validation for requred not working; submit works when validator not ready
+
+## TODOs
+- [x] ux/user-roles
+- [ ] feature/user-roles
+- [ ] ux/post-view-and-share
+
 ## Backlog
 
 - [x] ui/design-system
-- [ ] ux/user-roles
-- [ ] ux/post-view-and-share
 - [x] devops/deployment
 - [x] devops/ci-cd
 - [ ] feature/images-set
-- [ ] feature/user-roles
 - [ ] feature/post-view-and-share
 - [ ] feature/refresh-token
 - [ ] feature/forgotten-password
 - [ ] feature/passport-login-with-gmail
 - [x] feature/color-themes
+- [ ] feature/desktop-version
+- [ ] feature/lazy-loading
 - [ ] enhancement/init-tests
 - [ ] enhancement/separate-controllers-in-be
 - [ ] enhancement/sequelize-everywhere-in-be
