@@ -4,9 +4,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
-
-export default Vue.extend({
+export default {
   name: 'IndexPage',
   middleware: 'redirect',
   transition: 'page-transition',
@@ -15,5 +13,5 @@ export default Vue.extend({
       title: 'Index',
     };
   },
-})
+}
 </script>

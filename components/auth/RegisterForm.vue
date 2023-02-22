@@ -42,7 +42,7 @@
       <Button
         classes="is-link"
         label="Вход"
-        @click.native="navigateTo('/auth/login')"
+        @click.native="navigateTo($constants('Routes').Login)"
       ></Button>
     </div>
   </form>
@@ -84,7 +84,7 @@ export default {
           password: this.password, 
           name: this.name, 
         })
-        this.$router.push('/gallery')
+        this.$router.push($constants('Routes').Gallery)
       } catch (error) {
         console.error(error);        
         this.error = error.response.data.error;
