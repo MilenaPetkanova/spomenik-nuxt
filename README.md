@@ -17,7 +17,6 @@
 - backend -> [spomenik-node](https://github.com/MilenaPetkanova/spomenik-node).
 - old repo where fe and be were combined -> [spomenik](https://github.com/MilenaPetkanova/spomenik).
 
-
 ## Dependencies
 
 - vuex

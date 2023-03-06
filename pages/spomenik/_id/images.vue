@@ -1,5 +1,5 @@
 <template>
-  <main class="u-page is-gallery">
+  <main class="u-page is-images">
     <div class="u-container">
       <GalleryList />
     </div>
@@ -8,12 +8,7 @@
 
 <script>
 export default{
-  name: 'GalleryPage',
+  name: 'ImagesPage',
   transition: 'page-transition',
-  head() {
-    return {
-      title: 'Gallery',
-    };
-  },
 }
 </script>

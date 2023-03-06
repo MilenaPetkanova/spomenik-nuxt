@@ -1,6 +1,8 @@
-export default function ({ $axios }, inject) {
+import { Routes } from '~/constants/constants'
 
-  const spomeniksUrl = `${$axios.defaults.baseURL}/spomeniks`;
+export default function ({ $axios, store }, inject) {
+
+  const spomeniksUrl = `${$axios.defaults.baseURL}${Routes.Spomeniks}`;
   
   const spomeniksService = {
     async getAll() {

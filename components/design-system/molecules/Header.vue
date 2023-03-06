@@ -89,7 +89,7 @@ export default {
     async signout() {
       await this.$auth.logout();
     }
-	}
+  }
 }
 </script>
 

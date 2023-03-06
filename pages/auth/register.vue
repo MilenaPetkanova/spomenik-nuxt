@@ -6,16 +6,16 @@
   </main>
 </template>
 
-<script lang='ts'>
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+export default {
   name: 'RegisterPage',
   transition: 'page-transition',
   layout: 'guest',
+  auth: false,
   head() {
     return {
       title: 'Register',
     };
   },
-})
+}
 </script>

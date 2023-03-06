@@ -12,7 +12,6 @@
       ></Typography>
 
       <SpomeniksCreate></SpomeniksCreate>
-      <!-- <spomeniks-create></spomeniks-create> -->
     </div>
   </div>
 </template>
@@ -22,11 +21,7 @@ import SpomeniksCreate from '~/components/spomeniks/SpomeniksCreate.vue';
 export default {
   components: { SpomeniksCreate },
   transition: 'page-transition',
-  layout: 'guest',
-  head() {
-    return {
-      title: 'Create Spomenik',
-    };
-  },
 }
+
+// TODO: create layout for this page
 </script>

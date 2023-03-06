@@ -33,7 +33,7 @@
       <Button
         classes="is-link mb-2"
         label="Регистрация"
-        @click.native="$router.push('/auth/register')"
+        @click.native="$router.push($constants('Routes').Register)"
       ></Button>
       <Button
         classes="is-link"
