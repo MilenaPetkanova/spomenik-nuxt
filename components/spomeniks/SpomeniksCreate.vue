@@ -37,12 +37,16 @@ export default {
       return Validator.value(value).required()
     },
   },
+  computed: {
+    ...mapGetters('spomeniks', ['spomeniks', 'shownSpomenik']),
+  },
   methods: {
     ...mapActions('spomeniks', ['initSpomeniks', 'setShownSpomenik']),
     async fetchSpomeniks() {
       try {
         const spomeniks = await this.$spomeniksService.getAll();
         this.initSpomeniks(spomeniks);
+        console.log('this.spomeniks :>> ', this.spomeniks);
       }
       catch (error) {
         console.error(error);
@@ -52,9 +56,6 @@ export default {
       try {
         this.error = null
 
-        // console.log('user :>> ', this.user);
-        return
-        
         if(!this.name) {
           this.error = 'Name is a required field'
           return
@@ -62,11 +63,14 @@ export default {
 
         const newSpomenik = {
           name: this.name,
-          // userId: this.user.id
+          userId: this.$auth.$state.user.data.id
         }
         await this.$spomeniksService.create(newSpomenik);
+
         this.fetchSpomeniks();
-        this.setShownSpomenik(newSpomenik);
+        this.setShownSpomenik(this.spomeniks[0]);
+        
+        this.$router.push(this.$constants('Routes').Letters)
       }
       catch (error) {
         console.error(error);

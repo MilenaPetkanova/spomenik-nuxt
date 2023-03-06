@@ -6,3 +6,9 @@
     <Nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  middleware: ['auth', 'user-spomeniks'],
+}
+</script>

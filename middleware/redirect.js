@@ -1,3 +1,5 @@
+import { Routes } from "~/constants/constants"
+
 export default function ({ store, redirect }) {
-  return redirect('/letters')
+  return redirect(Routes.Spomeniks)
 }

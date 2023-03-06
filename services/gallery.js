@@ -1,6 +1,8 @@
-export default function ({ $axios }, inject) {
+import { Routes } from '~/constants/constants'
+
+export default function ({ $axios, store }, inject) {
   
-  const imagessUrl = `${$axios.defaults.baseURL}/images`;
+  const imagessUrl = `${$axios.defaults.baseURL}${Routes.Spomenik}/${store.state.spomeniks.shownSpomenik?.id}${Routes.Images}`;
 
   const galleryService = {
     async getAll() {

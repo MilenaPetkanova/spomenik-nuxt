@@ -5,12 +5,13 @@
         <li
           class="nav__element" 
           v-for="(element, index) in navElements" 
-          :key="index">
+          :key="index"
+        >
           <Button 
             class="nav__btn" 
             :classes="[currentRoute === element.route ? 'is-tertiary' : 'is-borderless']"
             :label="element.label"
-            @click.native="$router.push(element.route)">
+            @click.native="$router.push(`${$constants('Routes').Spomenik}/${shownSpomenik.id}${element.route}`)">
           </Button>
         </li>
       </ul>
@@ -19,26 +20,29 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+import { Routes } from '~/constants/constants';
 export default {
   data() {
     return {
       navElements: [
         {
-          route: 'letters',
+          route: Routes.Letters,
           label: 'Писма',
         },
         {
-          route: 'gallery',
+          route: Routes.Images,
           label: 'Галерия',
         },
         {
-          route: 'videos',
+          route: Routes.Images,
           label: 'Видеа',
         },
       ],
     }
   },
   computed: {
+    ...mapGetters('spomeniks', ['spomeniks', 'shownSpomenik']),
     currentRoute() {
       return this.$route.name;
     }
