@@ -111,6 +111,7 @@ More information about the usage of this directory in [the documentation](https:
 
 ## TODOs
 - [x] ux/user-roles
+- [x] feature/hide-show-password
 - [ ] feature/user-roles
 - [ ] ux/post-view-and-share
 
