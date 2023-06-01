@@ -44,7 +44,7 @@ export default {
           [TypographyEnum.Header3]: 'h3',
           [TypographyEnum.Subtitle]: 'h4',
           [TypographyEnum.Body]: 'p',
-          [TypographyEnum.Bold]: 'b',
+          [TypographyEnum.Bold]: 'strong',
           [TypographyEnum.Emphasis]: 'em',
           [TypographyEnum.Small]: 'small',
           [TypographyEnum.Overline]: 'h5',

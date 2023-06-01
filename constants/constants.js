@@ -1,4 +1,4 @@
-export const AppName = 'Spomenik';
+export const AppName = 'споменик';
 
 export const Routes = {
   Register: '/auth/register',

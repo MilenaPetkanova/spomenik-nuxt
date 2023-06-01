@@ -1,5 +1,6 @@
 <template>
   <div class="u-layout is-guest">
+    <!-- TODO: add back button with arrow -->
     <Logo />
     <Nuxt />
   </div>
