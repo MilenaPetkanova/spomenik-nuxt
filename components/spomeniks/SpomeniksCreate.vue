@@ -46,7 +46,6 @@ export default {
       try {
         const spomeniks = await this.$spomeniksService.getAll();
         this.initSpomeniks(spomeniks);
-        console.log('this.spomeniks :>> ', this.spomeniks);
       }
       catch (error) {
         console.error(error);
@@ -61,16 +60,17 @@ export default {
           return
         }
 
-        const newSpomenik = {
+        const data = {
           name: this.name,
           userId: this.$auth.$state.user.data.id
         }
-        await this.$spomeniksService.create(newSpomenik);
+        const newSpomenik = await this.$spomeniksService.create(data);
+        this.setShownSpomenik(newSpomenik);
 
         this.fetchSpomeniks();
-        this.setShownSpomenik(this.spomeniks[0]);
         
-        this.$router.push(this.$constants('Routes').Letters)
+        const lettersRoute = `${this.$constants('Routes').Spomenik}/${this.shownSpomenik.id}/${this.$constants('Routes').Letters}`
+        this.$router.push(lettersRoute)
       }
       catch (error) {
         console.error(error);
