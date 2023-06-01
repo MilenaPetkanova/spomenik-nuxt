@@ -1,15 +1,15 @@
 <template>
-  <div class="u-page is-letters">
+  <main class="u-page is-videos">
     <div class="u-container">
-      <LettersList />
+      <p>not implemeted</p>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
-export default {
+export default{
   layout: 'spomenik',
-  name: 'LettersPage',
+  name: 'VideosPage',
   transition: 'page-transition',
 }
 </script>

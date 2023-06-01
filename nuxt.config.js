@@ -30,6 +30,7 @@ export default {
     { src: '~/plugins/simple-vue-validator', ssr: true },
     { src: '~/plugins/vuejs-datepicker', ssr: false },
     { src: '~/plugins/constants', ssr: true },
+    { src: '~/services/auth', ssr: true },
     { src: '~/services/gallery', ssr: true },
     { src: '~/services/letters', ssr: true },
     { src: '~/services/spomeniks', ssr: true },

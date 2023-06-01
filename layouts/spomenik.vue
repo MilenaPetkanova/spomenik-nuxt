@@ -1,12 +1,13 @@
 <template>
   <div class="u-layout is-default">
-    <Logo />
+    <Header />
+    <Nav />
+    <ModalsWrapper />
     <Nuxt />
   </div>
 </template>
 
 <script>
-// TODO: rename layout to account
 export default {
   middleware: ['auth', 'user-spomeniks'],
 }

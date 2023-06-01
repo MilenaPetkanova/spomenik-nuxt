@@ -8,6 +8,7 @@
 
 <script>
 export default{
+  layout: 'spomenik',
   name: 'ImagesPage',
   transition: 'page-transition',
 }

@@ -6,10 +6,12 @@ export default function ({ $axios, store }, inject) {
   
   const spomeniksService = {
     async getAll() {
-      return await $axios.$get(spomeniksUrl)
+      const response = await $axios.$get(spomeniksUrl)
+      return response
     },
     async create(newRecord) {
-      await $axios.$post(spomeniksUrl, newRecord)
+      const response = await $axios.$post(spomeniksUrl, newRecord)
+      return response.data
     },
     async update(spomenikId, spomenikValue) {
       await $axios.$put(`${spomeniksUrl}/${spomenikId}`, spomenikValue)

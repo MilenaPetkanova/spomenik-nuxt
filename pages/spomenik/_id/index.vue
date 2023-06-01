@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  layout: 'spomenik',
   transition: 'page-transition',
 }
 // TODO: rename directory from "spomenik" to "spomeniks"

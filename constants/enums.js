@@ -22,3 +22,9 @@ export const TypographyEnum = {
   ButtonText: 'button-text',
   Link: 'link',
 }
+
+export const UserRolesEnums = {
+  Admin: 'admin',
+  Creator: 'creator',
+  Viewer: 'viewer',
+}
