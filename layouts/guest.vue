@@ -6,6 +6,16 @@
   </div>
 </template>
 
+
+<script>
+export default {
+  mounted() {
+    console.log('in guest layout');
+  },
+}
+</script>
+
+
 <style scoped>
 .u-layout {
   @apply pt-28;

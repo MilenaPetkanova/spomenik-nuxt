@@ -1,8 +1,5 @@
 <template>
-  <div class="u-layout is-default">
-    <Header />
-    <Nav />
-    <ModalsWrapper />
+  <div class="u-layout">
     <Nuxt />
   </div>
 </template>
@@ -11,7 +8,13 @@
 export default {
   middleware: ['auth', 'user-spomeniks'],
   mounted() {
-    console.log('in spomenik');
+    console.log('in account layout');
   }
 }
 </script>
+
+<style scoped>
+.u-layout {
+  @apply py-8;
+}
+</style>

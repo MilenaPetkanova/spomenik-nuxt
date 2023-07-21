@@ -1,4 +1,6 @@
 export default async function ({ store, app, redirect, route, params }) {
+  console.log('in usp middleware');
+  
   const spomeniks = await app.$spomeniksService.getAll();
   store.dispatch("spomeniks/initSpomeniks", spomeniks);
 

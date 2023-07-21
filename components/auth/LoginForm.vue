@@ -64,12 +64,13 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await this.$auth.loginWith("local", {
+        await this.$auth.loginWith("local", {
           data: { 
             email: this.email, 
             password: this.password 
           },
         });
+        this.$router.push(this.$constants('Routes').Landing);
       }
       catch (error) {
         console.error(error);

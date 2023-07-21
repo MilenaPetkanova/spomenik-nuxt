@@ -18,6 +18,7 @@ export default {
     SpomeniksCreate, 
     SpomeniksList, 
   },
+  layout: 'account',
   transition: 'page-transition',
 }
 
