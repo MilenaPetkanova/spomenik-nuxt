@@ -1,21 +1,23 @@
 import { Routes } from '~/constants/constants'
 
 export default function ({ $axios, store }, inject) {
-
-  const lettersUrl = `${$axios.defaults.baseURL}${Routes.Spomenik}/${store.state.spomeniks.shownSpomenik?.id}${Routes.Letters}`;
   
   const lettersService = {
+    getUrl() {
+      const letterApiUrl = `${$axios.defaults.baseURL}${Routes.Spomenik}/${store.state.spomeniks.shownSpomenik?.id}${Routes.Letters}`
+      return letterApiUrl
+    },
     async getAll() {
-      return await $axios.$get(lettersUrl)
+      return await $axios.$get(this.getUrl())
     },
     async create(newRecord) {
-      await $axios.$post(lettersUrl, newRecord)
+      await $axios.$post(this.getUrl(), newRecord)
     },
     async update(letterId, letterValue) {
-      await $axios.$put(`${lettersUrl}/${letterId}`, letterValue)
+      await $axios.$put(`${this.getUrl()}/${letterId}`, letterValue)
     },
     async delete(letterId) {
-      await $axios.$delete(`${lettersUrl}/${letterId}`)
+      await $axios.$delete(`${this.getUrl()}/${letterId}`)
     },
   }
 

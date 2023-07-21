@@ -5,17 +5,21 @@ export default function ({ $axios, store }, inject) {
   const imagessUrl = `${$axios.defaults.baseURL}${Routes.Spomenik}/${store.state.spomeniks.shownSpomenik?.id}${Routes.Images}`;
 
   const galleryService = {
+    getUrl() {
+      const imagesApiUrl = `${$axios.defaults.baseURL}${Routes.Spomenik}/${store.state.spomeniks.shownSpomenik?.id}${Routes.Images}`;
+      return imagesApiUrl
+    },
     async getAll() {
-      return await $axios.$get(imagessUrl)
+      return await $axios.$get(this.getUrl())
     },
     async create(newItem) {
-      await $axios.$post(imagessUrl, newItem)
+      await $axios.$post(this.getUrl(), newItem)
     },
     async update(itemId, itemValue) {
-      await $axios.$put(`${imagessUrl}/${itemId}`, itemValue)
+      await $axios.$put(`${this.getUrl()}/${itemId}`, itemValue)
     },
     async delete(itemId) {
-      await $axios.$delete(`${imagessUrl}/${itemId}`)
+      await $axios.$delete(`${this.getUrl()}/${itemId}`)
     },
   }
 
